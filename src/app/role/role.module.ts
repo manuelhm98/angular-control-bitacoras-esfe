@@ -5,7 +5,9 @@ import { RoleRoutingModule } from './role-routing.module';
 import { RolesComponent } from './components/roles/roles.component';
 import { ListaRolesComponent } from './components/lista-roles/lista-roles.component';
 import { NuevoRolComponent } from './components/nuevo-rol/nuevo-rol.component';
+
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     RoleRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class RoleModule { }

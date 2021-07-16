@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { LoginComponent } from './auth/components/login/login.component';
+import { RolesComponent } from './role/components/roles/roles.component';
+import { RoleModule } from './role/role.module';
 import { PagesComponent } from './shared/pages.component';
 import { DashboardComponent } from './shared/pages/dashboard/dashboard.component';
 import { NotpageComponent } from './shared/pages/notpage/notpage.component';

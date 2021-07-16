@@ -1,1 +1,22 @@
-<p>lista-roles works!</p>
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let roles of roleService.listaRole">
+            <td>{{roles.Roles}}</td>
+            <td>{{roles.Estado}}</td>
+            <td>
+                <i class="far fa-edit fa-lg text-info" style="cursor: pointer;" (click)="dataRole(role)"></i>
+            </td>
+            <td>
+                <i class="far fa-trash-alt fa-lg text-danger" style="cursor: pointer;"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

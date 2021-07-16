@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RolesService } from '../../services/roles.service';
+
 
 @Component({
   selector: 'app-lista-roles',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaRolesComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(public roleService: RolesService) { }
 
   ngOnInit(): void {
+    this.roleService.getListRole();
+  }
+
+  /**ENVIAR DATA */
+  dataRole(role) {
+    this.roleService.postDataRole(role);
   }
 
 }
