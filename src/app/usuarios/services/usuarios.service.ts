@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
+import { cargarUsuario } from 'src/app/Interfaces/cargar-usuarios.interfaces';
 
 import { environment } from 'src/environments/environment';
 import { Usuario } from '../models/usuario';
@@ -24,11 +25,14 @@ export class UsuariosService {
     return this.http.post<Usuario>(`${base_url}/usuario/guardar`, usuario);
   }
 
-  /**LISTAR USUARIOS */
-  listUser() {
-    this.http.get(`${base_url}/usuario/lista`).toPromise().then((data) => {
-      this.usuario = data as Usuario[];
-    })
+  //* CARGAR USUARIOS PAGINADOS 
+  loadUser(page: number = 1) {
+
+    const url = `${base_url}/usuario/usuarioLista?page=${page}`
+
+    return this.http.get<cargarUsuario>(url);
+
+
   }
 
 }

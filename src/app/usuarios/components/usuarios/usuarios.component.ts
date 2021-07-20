@@ -12,7 +12,7 @@ export class UsuariosComponent implements OnInit {
   constructor(public usuarioService: UsuariosService) { }
 
   ngOnInit(): void {
-    this.usuarioService.listUser();
+
   }
 
 }

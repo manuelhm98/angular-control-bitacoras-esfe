@@ -53,7 +53,7 @@ export class NuevoUsuarioComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
-      this.usuarioService.listUser();
+      this.usuarioService.loadUser();
       this.registerUser.reset();
       console.log(this.registerUser)
     }, (err) => {
