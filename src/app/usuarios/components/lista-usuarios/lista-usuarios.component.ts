@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
 import { Usuario } from '../../models/usuario';
 import { UsuariosService } from '../../services/usuarios.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-lista-usuarios',
   templateUrl: './lista-usuarios.component.html',
@@ -12,7 +11,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class ListaUsuariosComponent implements OnInit {
 
   public totalUsuarios: number = 0;
-  public usuario: Usuario[] = [];
+  public usuarios: Usuario[] = [];
   public page: number = 1;
   public take: number = 5;
 
@@ -26,33 +25,48 @@ export class ListaUsuariosComponent implements OnInit {
 
   }
 
-
+  //* CARGAR USUARIOS 
   loadingUser() {
     this.usuarioService.loadUser(this.page).subscribe(({ TotalRegistros, Usuarios }) => {
       this.totalUsuarios = TotalRegistros;
-      this.usuario = Usuarios
-      console.log(this.usuario)
+      this.usuarios = Usuarios
+      console.log(this.usuarios)
     })
   }
 
+  //* PAGINACION
   changePage(valor: number) {
-
-
     this.page += valor;
-
-    /*  this.page >= this.totalUsuarios ? this.page : this.page + 1
-     this.page <= 1 ? this.page : this.page - 1
-  */
     if (this.page <= 1) {
       this.page = 1
     } else if (this.page > this.totalUsuarios + 1) {
       this.page -= valor;
     }
     this.loadingUser();
-
-
   }
 
+  //* ELIMINAR USUARIO
+  deleteUser(nombre: string, id: number) {
+    Swal.fire({
+      title: '¿Eliminar Usuario?',
+      text: 'Esta a punto de eliminar a ' + nombre,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si eliminarlo'
+    }).then((result) => {
+      if (result.value) {
+        this.usuarioService.deleteUser(id)
+          .subscribe(resp => {
+            this.loadingUser();
+            Swal.fire(
+              'Usuario eliminado',
+              `${nombre} fue eliminado correctamente`,
+              'success'
+            )
+          })
+      }
+    })
+  }
 
 
 

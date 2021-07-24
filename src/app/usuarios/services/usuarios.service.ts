@@ -22,17 +22,23 @@ export class UsuariosService {
 
   /**METODO GUARDAR USUARIOS */
   createNewUser(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${base_url}/usuario/guardar`, usuario);
+    return this.http.post<Usuario>(`${base_url}/usuario`, usuario);
   }
 
   //* CARGAR USUARIOS PAGINADOS 
   loadUser(page: number = 1) {
+    const url = `${base_url}/usuario/lista?page=${page}`
+    return this.http.get<cargarUsuario>(url)
+  }
 
-    const url = `${base_url}/usuario/usuarioLista?page=${page}`
+  //* ELIMINAR USUARIOS
+  deleteUser(id: number): Observable<Usuario> {
+    return this.http.delete<Usuario>(`${base_url}/usuario/${id}`)
+  }
 
-    return this.http.get<cargarUsuario>(url);
-
-
+  //* OBTENER MEDICO POR ID 
+  userById(id: number) {
+    return this.http.get(`${base_url}/${id}`);
   }
 
 }

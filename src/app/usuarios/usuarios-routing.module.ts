@@ -12,7 +12,7 @@ const routes: Routes = [{
   path: '', component: UsuariosComponent, data: { titulo: 'Usuarios' },
   children: [
     { path: 'lista-usuarios', component: ListaUsuariosComponent, data: { titulo: 'Usuarios' } },
-    { path: 'nuevo-usuario', component: NuevoUsuarioComponent, data: { titulo: 'Registrar Usuario' } },
+    { path: 'nuevo-usuario/:id', component: NuevoUsuarioComponent, data: { titulo: 'Registrar Usuario' } },
     { path: '**', redirectTo: 'lista-usuarios' }
   ]
 }];

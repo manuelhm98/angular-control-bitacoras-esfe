@@ -1,52 +1,70 @@
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-lg border-0 rounded-lg mt-5">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card" style="background-color: #f9f5ff;">
+            <div class="card-body">
 
-                <div class="card-body">
-                    <form [formGroup]="registerUser" (ngSubmit)="createUser()">
-                        <div class="form-group">
-                            <label class="form-label">Nombres</label>
-                            <input type="text" class="form-control" formControlName="nombre">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" formControlName="apellido">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label class="form-label">Rol</label>
-                            <select class="form-select" aria-label="Default select example" formControlName="roleId">
-                                <option *ngFor="let rol of roles" value="{{rol.RoleID}}">{{rol.Roles}}</option>
-                            </select>
-                        </div>
+                <form class="form-horizontal p-t-20" [formGroup]="registerUser" (ngSubmit)="createUser()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" formControlName="nombre">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="form-label">Apellidos</label>
+                                        <input type="text" class="form-control" formControlName="apellido">
+                                    </div>
 
-                        <br>
-                        <div class="row">
-                            <div class="fprm-group col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" formControlName="email">
+                                    <br>
+                                    <div class="row">
+                                        <div class="fprm-group col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" formControlName="email">
+                                            </div>
+                                        </div>
+                                        <div class="fprm-group col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Password</label>
+                                                <input type="password" class="form-control" formControlName="pass">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
-                            <div class="fprm-group col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control" formControlName="pass">
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label class="form-label">Rol</label>
+                                        <select class="form-select" aria-label="Default select example"
+                                            formControlName="roleId">
+                                            <option *ngFor="let rol of roles" value="{{rol.RoleID}}">{{rol.Roles}}
+                                            </option>
+                                        </select>
+                                    </div>
+
                                 </div>
                             </div>
+                            <br>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" type="submit">
+                                    Agregar
+                                </button>
+                            </div>
                         </div>
-                        <br>
-
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-success" type="submit">
-                                Agregar
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
+<br>
+<a class="small" routerLink="/usuarios/lista-usuario">Ver lista?</a>

@@ -1,6 +1,7 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a routerLink="../nuevo-usuario" class="btn btn-primary">Nuevo usuario</a>
+    <a routerLink="../nuevo-usuario/0" class="btn btn-primary">Nuevo usuario</a>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <h6>Listado de Usuarios ({{totalUsuarios}}) desde - {{page}}</h6>
@@ -11,20 +12,26 @@
                     <th scope="col">Nombres</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
+                    <th scope="col">Acciones</th>
+
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let usuarios of usuario">
-                    <td>{{usuarios.Nombre}}</td>
-                    <td>{{usuarios.Apellido}}</td>
-                    <td>{{usuarios.Email}}</td>
-                    <td>
-                        <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
-                    </td>
-                    <td>
-                        <i class="far fa-trash-alt fa-lg text-danger" style="cursor: pointer;"></i>
+                <tr *ngFor="let usuario of usuarios">
+                    <td>{{usuario.Nombre}}</td>
+                    <td>{{usuario.Apellido}}</td>
+                    <td>{{usuario.Email}}</td>
+
+                    <td class="text-nowrap text-center">
+                        <a class="cursor" style="cursor: pointer;"
+                            [routerLink]="['/usuarios','nuevo-usuario', usuario.UsuarioID ]">
+                            <i class=" far fa-edit fa-lg text-info"></i>
+                        </a>
+                        |
+                        <a (click)="deleteUser(usuario.Nombre, usuario.UsuarioID)" style="cursor: pointer;">
+                            <i class="far fa-trash-alt fa-lg text-danger"></i>
+                        </a>
+
                     </td>
                 </tr>
             </tbody>
