@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 import { Roles } from 'src/app/role/models/roles';
 import { RolesService } from 'src/app/role/services/roles.service';
@@ -15,6 +17,9 @@ export class NuevoUsuarioComponent implements OnInit {
 
   /**AREGLO DE ROLES */
   public roles: Roles[] = [];
+  public user: any;
+
+
 
   /**VALIDACION DE FORMULARIO */
   public registerUser = this.fb.group({
@@ -26,43 +31,92 @@ export class NuevoUsuarioComponent implements OnInit {
     estado: ['1', [Validators.required]]
   })
 
-  constructor(private fb: FormBuilder, private roleService: RolesService, private usuarioService: UsuariosService) { }
+  constructor(
+    private fb: FormBuilder,
+    private roleService: RolesService,
+    private usuarioService: UsuariosService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id))
     this.cargarRole();
   }
 
+  cargarUsuario(id: number) {
+    this.usuarioService.userById(id).subscribe(data => {
+
+      if (id === 0) {
+        return;
+      }
+      this.user = data
+
+      console.log(this.user)
+
+      this.registerUser.patchValue({
+        roleId: this.user.RoleID,
+        nombre: this.user.Nombre,
+        apellido: this.user.Apellido,
+        email: this.user.Email,
+        pass: this.user.Pass,
+        estado: this.user.Estado
+      })
+    })
+  }
   /**GUARDAR USUARIO */
   createUser() {
-    if (this.registerUser.invalid) {
-      return Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No se permiten campos vacios',
-        showConfirmButton: false,
-        timer: 1000
+
+    //Actualizar
+    if (this.user) {
+      const data = {
+        ...this.registerUser.value,
+        UsuarioId: this.user.UsuarioID
+      }
+      this.usuarioService.updateUser(data).subscribe(resp => {
+        console.log(resp)
+        Swal.fire({
+          icon: 'success',
+          title: 'Ok...',
+          text: 'El Usuario se actualizo exitosamente !!!',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.usuarioService.loadUser();
+        this.registerUser.reset();
+      })
+    } else {
+      if (this.registerUser.invalid) {
+        return Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No se permiten campos vacios',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      }
+
+      this.usuarioService.createNewUser(this.registerUser.value).subscribe(resp => {
+        console.log(resp);
+        Swal.fire({
+          icon: 'success',
+          title: 'Ok...',
+          text: 'Registro exitoso !!!',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.usuarioService.loadUser();
+        this.registerUser.reset();
+        console.log(this.registerUser)
+      }, (err) => {
+        if (err.name === "HttpErrorResponse") {
+          console.log(err)
+          Swal.fire('Error', 'Servidor no disponible', 'error',)
+        }
       })
     }
 
-    this.usuarioService.createNewUser(this.registerUser.value).subscribe(resp => {
-      console.log(resp);
-      Swal.fire({
-        icon: 'success',
-        title: 'Ok...',
-        text: 'Registro exitoso !!!',
-        showConfirmButton: false,
-        timer: 2000
-      })
-      this.usuarioService.loadUser();
-      this.registerUser.reset();
-      console.log(this.registerUser)
-    }, (err) => {
-      if (err.name === "HttpErrorResponse") {
-        console.log(err)
-        Swal.fire('Error', 'Servidor no disponible', 'error',)
-      }
-    })
   }
+
+
 
   cargarRole() {
     this.roleService.listRoles().subscribe(data => {

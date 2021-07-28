@@ -69,5 +69,7 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
 
-
+  userEdit(user: Usuario) {
+    console.log(user)
+  }
 }
