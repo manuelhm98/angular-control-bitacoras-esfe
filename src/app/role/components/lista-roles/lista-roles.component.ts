@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Roles } from '../../models/roles';
 import { RolesService } from '../../services/roles.service';
 
 
@@ -9,17 +10,38 @@ import { RolesService } from '../../services/roles.service';
 })
 export class ListaRolesComponent implements OnInit {
 
-
+  //* DECLARACION DE VARIBALES
+  public totalRoles: number = 0;
+  public roles: Roles[] = [];
+  public page: number = 1;
+  public take: number = 5;
 
   constructor(public roleService: RolesService) { }
 
   ngOnInit(): void {
-    this.roleService.getListRole();
+    this.loadingRole();
   }
 
-  /**ENVIAR DATA */
-  dataRole(role) {
-    this.roleService.postDataRole(role);
+  //* CARGAR ROLES 
+  loadingRole() {
+    this.roleService.getListRole(this.page).subscribe(({ TotalRegistros, Roles }) => {
+      this.totalRoles = TotalRegistros;
+      this.roles = Roles
+      console.log(this.roles)
+    })
   }
+
+  //Paginacion 
+  changePage(valor: number) {
+    this.page += valor;
+    if (this.page <= 1) {
+      this.page = 1;
+    } else if (this.page > this.totalRoles + 1) {
+      this.page -= valor;
+    }
+    this.loadingRole();
+  }
+
+
 
 }

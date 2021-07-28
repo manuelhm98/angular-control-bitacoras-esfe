@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { cargarUsuario } from 'src/app/Interfaces/cargar-usuarios.interfaces';
 import { Usuario } from '../models/usuario';
-import { cargarUser } from 'src/app/Interfaces/cargar-usuario.interfaces';
+
 
 /***URL API WEB */
 const base_url = environment.base_url;

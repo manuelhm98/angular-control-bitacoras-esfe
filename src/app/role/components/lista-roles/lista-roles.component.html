@@ -1,22 +1,27 @@
 <table class="table">
     <thead class="table-dark">
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">roles</th>
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let roles of roleService.listaRole">
-            <td>{{roles.Roles}}</td>
-            <td>{{roles.Estado}}</td>
+        <tr *ngFor="let role of roles">
+            <td>{{role.Roles}}</td>
             <td>
                 <i class="far fa-edit fa-lg text-info" style="cursor: pointer;" (click)="dataRole(role)"></i>
-            </td>
-            <td>
+                |
                 <i class="far fa-trash-alt fa-lg text-danger" style="cursor: pointer;"></i>
             </td>
         </tr>
     </tbody>
 </table>
+
+<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btncheck1">
+        < Anterior </label>
+            <br>
+            <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
+</div>

@@ -5,6 +5,9 @@ import { RolesService } from '../../services/roles.service';
 import Swal from 'sweetalert2'
 import { Subscription } from 'rxjs';
 import { Roles } from '../../models/roles';
+import { ListaRolesComponent } from '../lista-roles/lista-roles.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-nuevo-rol',
@@ -18,11 +21,13 @@ export class NuevoRolComponent implements OnInit {
   IdRole = 0;
   /****VALIDACION DE FORMULARIO*****/
   public registerForm = this.fb.group({
-    Roles: ['', [Validators.required]]
+    Roles: ['', [Validators.required]],
+    Estado: ['1', [Validators.required]]
 
   })
 
-  constructor(private fb: FormBuilder, private roleService: RolesService) {
+
+  constructor(private fb: FormBuilder, private roleService: RolesService, private router: Router) {
 
   }
 
