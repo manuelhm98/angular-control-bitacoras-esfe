@@ -14,7 +14,7 @@ const base_url = environment.base_url;
 })
 export class RolesService {
   /****Arreglo de Roles */
-  listaRole: Roles[];
+  listaRole: any;
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +23,14 @@ export class RolesService {
     return this.http.post<Roles>(`${base_url}/rol`, roles)
   }
 
+  /********METODO LISTAR ROLE */
+  /*   getListRole() {
+      this.http.get(`${base_url}/role`)
+        .toPromise()
+        .then((data) => {
+          this.listaRole = data as Roles[];
+        })
+    } */
   //*METODO LISTAR ROLE 
   getListRole(page: number = 1) {
     const url = `${base_url}/rol/lista?page=${page}`

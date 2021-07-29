@@ -7,9 +7,8 @@ export class SidebarService {
 
   puestosTrabajo: any[] = [
     {
-      titulo: 'Puestos de trabajo',
+      titulo: 'Mantenimiento',
       icon: 'fas fa-desktop',
-      url: '/puestos-trabajo',
       submenu: [
         { titulo: 'Muebles', url: '/mueble' },
         { titulo: 'UPS', url: '/ups' },
@@ -24,8 +23,9 @@ export class SidebarService {
     {
       titulo: 'Centros de computo',
       icon: 'fas fa-laptop-house',
-      url: '/area',
+
       submenu: [
+        { titulo: 'Areas de computo', url: '/area' },
         { titulo: 'Tipo de area', url: '/tipo-area' },
         { titulo: 'Equipo de areas', url: '/equipo-area' },
       ]
@@ -34,9 +34,8 @@ export class SidebarService {
 
   bitacoras: any[] = [
     {
-      titulo: 'Bitacora',
+      titulo: 'Fallas',
       icon: 'fas fa-file-alt',
-      url: '/bitacora',
       submenu: [
         { titulo: 'Fallas', url: '/falla' },
         { titulo: 'Tipo de fallas', url: '/tipo-falla' }
@@ -46,12 +45,11 @@ export class SidebarService {
 
   usuario: any[] = [
     {
-      titulo: 'Usuarios',
-      icon: 'fas fa-users-cog',
-      url: '/usuarios',
+      titulo: 'Configuracion',
+      icon: 'fas fa-cogs',
       submenu: [
-        { titulo: 'Roles', url: '/roles' },
-        { titulo: 'Nuevo rol', url: 'roles//nuevo-rol' }
+        { titulo: 'Usuarios', url: '/usuarios' },
+        { titulo: 'Roles', url: '/roles' }
       ]
     }
   ]

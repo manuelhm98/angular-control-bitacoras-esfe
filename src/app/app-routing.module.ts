@@ -20,10 +20,6 @@ const routes: Routes = [
         loadChildren: () => import('./area/area.module').then((m) => m.AreaModule)
       },
       {
-        path: 'area',
-        loadChildren: () => import('./area/area.module').then((m) => m.AreaModule)
-      },
-      {
         path: 'bitacora',
         loadChildren: () => import('./bitacora/bitacora.module').then((m) => m.BitacoraModule)
       },

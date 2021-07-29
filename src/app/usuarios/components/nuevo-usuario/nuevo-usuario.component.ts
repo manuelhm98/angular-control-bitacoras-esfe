@@ -35,7 +35,8 @@ export class NuevoUsuarioComponent implements OnInit {
     private fb: FormBuilder,
     private roleService: RolesService,
     private usuarioService: UsuariosService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id))

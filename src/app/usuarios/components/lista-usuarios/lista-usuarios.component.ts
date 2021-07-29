@@ -22,6 +22,7 @@ export class ListaUsuariosComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadingUser()
+    this.usuarios;
 
   }
 
