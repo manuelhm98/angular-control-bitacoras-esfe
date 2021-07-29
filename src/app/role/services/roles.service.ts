@@ -14,7 +14,7 @@ const base_url = environment.base_url;
 })
 export class RolesService {
   /****Arreglo de Roles */
-  listaRole: any;
+  listaRole: Roles[] = [];
 
   constructor(private http: HttpClient) { }
 

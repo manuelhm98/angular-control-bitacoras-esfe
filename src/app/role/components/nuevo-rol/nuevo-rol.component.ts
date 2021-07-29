@@ -27,9 +27,9 @@ export class NuevoRolComponent implements OnInit {
   })
 
 
-  constructor(private fb: FormBuilder, private roleService: RolesService, private router: Router) {
-
-  }
+  constructor(private fb: FormBuilder,
+    private roleService: RolesService,
+  ) { }
 
   ngOnInit(): void {
 

@@ -27,9 +27,10 @@ export class ListaRolesComponent implements OnInit {
     this.roleService.getListRole(this.page).subscribe(({ TotalRegistros, Roles }) => {
       this.totalRoles = TotalRegistros;
       this.roles = Roles
-      console.log(this.roles)
     })
   }
+
+
 
   //Paginacion 
   changePage(valor: number) {
