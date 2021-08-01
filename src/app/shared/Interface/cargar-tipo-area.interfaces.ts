@@ -1,4 +1,5 @@
-import { TipoArea } from "../tipo-area/models/tipo-area";
+import { TipoArea } from "src/app/tipo-area/models/tipo-area";
+
 
 export interface cargarTipoArea {
     totalRegistros: number;

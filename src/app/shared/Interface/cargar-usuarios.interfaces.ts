@@ -1,4 +1,5 @@
-import { Usuario } from "../usuarios/models/usuario";
+import { Usuario } from "src/app/usuarios/models/usuario";
+
 
 
 export interface cargarUsuario {

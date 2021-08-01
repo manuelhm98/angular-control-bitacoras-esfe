@@ -1,4 +1,5 @@
-import { TipoFalla } from "../tipo-falla/models/tipo-falla";
+import { TipoFalla } from "src/app/tipo-falla/models/tipo-falla";
+
 
 export interface cargarTipoFalla {
     totalRegistros: number;

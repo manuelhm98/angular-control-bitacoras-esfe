@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { cargarBitacora } from 'src/app/Interfaces/cargar-bitacora.interfaces';
+import { cargarBitacora } from 'src/app/shared/Interface/cargar-bitacora.interfaces';
 import { environment } from 'src/environments/environment';
 import { Bitacora } from '../models/bitacora';
 

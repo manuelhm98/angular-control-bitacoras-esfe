@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { cargarUsuario } from 'src/app/Interfaces/cargar-usuarios.interfaces';
+import { cargarUsuario } from 'src/app/shared/Interface/cargar-usuarios.interfaces';
 import { Usuario } from '../models/usuario';
 
 

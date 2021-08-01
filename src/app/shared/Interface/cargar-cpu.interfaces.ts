@@ -1,4 +1,5 @@
-import { Cpu } from "../cpu/models/cpu";
+import { Cpu } from "src/app/cpu/models/cpu";
+
 
 export interface cargarCpu {
     totalRegistros: number;

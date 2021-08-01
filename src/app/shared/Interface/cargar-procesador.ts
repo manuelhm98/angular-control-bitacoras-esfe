@@ -1,4 +1,5 @@
-import { Procesador } from "../procesador/models/procesador";
+import { Procesador } from "src/app/procesador/models/procesador";
+
 
 export interface cargarProcesador {
     totalRegistros: number;

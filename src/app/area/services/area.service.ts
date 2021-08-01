@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { cargarArea } from 'src/app/Interfaces/cargar-area.interfaces';
+import { cargarArea } from 'src/app/shared/Interface/cargar-area.interfaces';
 import { environment } from 'src/environments/environment';
 import { Area } from '../models/area';
 

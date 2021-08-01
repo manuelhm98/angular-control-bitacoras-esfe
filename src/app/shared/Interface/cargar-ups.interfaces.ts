@@ -1,4 +1,4 @@
-import { Ups } from "../ups/models/ups";
+import { Ups } from "src/app/ups/models/ups";
 
 export interface cargarUps {
     totalRegistros: number;

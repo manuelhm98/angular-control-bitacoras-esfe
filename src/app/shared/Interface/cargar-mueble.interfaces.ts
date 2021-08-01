@@ -1,4 +1,5 @@
-import { Mueble } from "../mueble/models/mueble";
+import { Mueble } from "src/app/mueble/models/mueble";
+
 
 export interface cargarMueble {
     totalRegistros: number;

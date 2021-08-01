@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { Roles } from "../models/roles";
-import { BehaviorSubject, Observable } from 'rxjs';
-import { cargarRoles } from 'src/app/Interfaces/cargar-roles.interfaces';
+import { Observable } from 'rxjs';
+import { cargarRoles } from 'src/app/shared/Interface/cargar-roles.interfaces';
 
 //**********URL API WEB **************/
 const base_url = environment.base_url;

@@ -1,4 +1,5 @@
-import { Area } from "../area/models/area";
+import { Area } from "src/app/area/models/area";
+
 
 export interface cargarArea {
 
