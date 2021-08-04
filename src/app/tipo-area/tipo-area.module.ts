@@ -5,13 +5,18 @@ import { TipoAreaRoutingModule } from './tipo-area-routing.module';
 import { TipoAreaComponent } from './components/tipo-area/tipo-area.component';
 import { ListaTipoAreaComponent } from './components/lista-tipo-area/lista-tipo-area.component';
 import { NuevoTipoAreaComponent } from './components/nuevo-tipo-area/nuevo-tipo-area.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [TipoAreaComponent, ListaTipoAreaComponent, NuevoTipoAreaComponent],
   imports: [
     CommonModule,
-    TipoAreaRoutingModule
+    TipoAreaRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class TipoAreaModule { }
