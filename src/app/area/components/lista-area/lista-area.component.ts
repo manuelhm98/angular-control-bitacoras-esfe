@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AreaService } from '../../services/area.service';
 
 @Component({
   selector: 'app-lista-area',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaAreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private areaService: AreaService) { }
 
   ngOnInit(): void {
   }
 
+
+  abrirModal() {
+    this.areaService.abrirModal();
+  }
 }

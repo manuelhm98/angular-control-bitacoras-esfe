@@ -14,7 +14,22 @@ const base_url = environment.base_url;
 })
 export class AreaService {
 
+
   constructor(private http: HttpClient) { }
+
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
 
   //* GUARDAR 
   createArea(area: Area): Observable<Area> {

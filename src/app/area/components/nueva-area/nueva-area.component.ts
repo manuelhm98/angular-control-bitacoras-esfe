@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AreaService } from '../../services/area.service';
 
 @Component({
   selector: 'app-nueva-area',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevaAreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(public areaService: AreaService) { }
 
   ngOnInit(): void {
   }
 
+  cerrarModal() {
+    this.areaService.cerrarModal();
+  }
 }
