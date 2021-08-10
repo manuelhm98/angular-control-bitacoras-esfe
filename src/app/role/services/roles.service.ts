@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from 'src/environments/environment';
 import { Roles } from "../models/roles";
 import { Observable } from 'rxjs';
 import { cargarRoles } from 'src/app/shared/Interface/cargar-roles.interfaces';
+
 
 //**********URL API WEB **************/
 const base_url = environment.base_url;
@@ -16,12 +17,32 @@ export class RolesService {
   /****Arreglo de Roles */
   listaRole: Roles[] = [];
 
+  //* EVENTS
+  public newRegister: EventEmitter<Roles> = new EventEmitter<Roles>();
+
   constructor(private http: HttpClient) { }
 
   /********METODO GUARDAR********/
   createNewRole(roles: Roles): Observable<Roles> {
     return this.http.post<Roles>(`${base_url}/rol`, roles)
   }
+
+
+  //* MODALS 
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+
 
   /********METODO LISTAR ROLE */
   /*   getListRole() {

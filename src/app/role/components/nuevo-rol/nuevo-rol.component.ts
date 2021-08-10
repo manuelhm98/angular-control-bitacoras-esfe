@@ -5,9 +5,6 @@ import { RolesService } from '../../services/roles.service';
 import Swal from 'sweetalert2'
 import { Subscription } from 'rxjs';
 import { Roles } from '../../models/roles';
-import { ListaRolesComponent } from '../lista-roles/lista-roles.component';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-nuevo-rol',
@@ -28,13 +25,16 @@ export class NuevoRolComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder,
-    private roleService: RolesService,
+    public roleService: RolesService,
   ) { }
 
   ngOnInit(): void {
 
   }
 
+  cerrarModal() {
+    this.roleService.cerrarModal();
+  }
   /**REGISTRAR NUEVO ROL */
   registerNewRol() {
     console.log(this.registerForm.value)
@@ -58,7 +58,9 @@ export class NuevoRolComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
+      this.roleService.newRegister.emit(resp);
       this.roleService.getListRole();
+      this.roleService.cerrarModal();
       this.registerForm.reset();
     }, (err) => {
       if (err.name === "HttpErrorResponse") {

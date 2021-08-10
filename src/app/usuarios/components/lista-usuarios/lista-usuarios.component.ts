@@ -21,8 +21,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.loadingUser()
-      ;
+    this.loadingUser();
 
   }
 
@@ -31,7 +30,6 @@ export class ListaUsuariosComponent implements OnInit {
     this.usuarioService.loadUser(this.page).subscribe(({ TotalRegistros, Usuarios }) => {
       this.totalUsuarios = TotalRegistros;
       this.usuarios = Usuarios
-
     })
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
 import { Roles } from '../../models/roles';
 import { RolesService } from '../../services/roles.service';
 
@@ -20,6 +21,15 @@ export class ListaRolesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingRole();
+    this.roleService.newRegister.pipe(
+      delay(100)
+    ).subscribe(resp => {
+      this.loadingRole();
+    })
+  }
+
+  abrirModal() {
+    this.roleService.abrirModal();
   }
 
   //* CARGAR ROLES 
