@@ -55,9 +55,28 @@
                             </div>
                             <br>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-success" type="submit">
+                                <button [disabled]="!registerUser.valid" class="btn btn-success" type="submit">
                                     Agregar
                                 </button>
+                            </div>
+                            <br>
+                            <div *ngIf="!registerUser.valid && (registerUser.dirty || registerUser.touched)"
+                                class="alert alert-danger" role="alert">
+                                <p> º Nose permiten campos vacios</p>
+                                <div
+                                    *ngIf="!registerUser.controls['pass'].valid && (registerUser.controls['pass'].dirty || registerUser.controls['pass'].touched)">
+                                    <p *ngIf="registerUser.controls['pass'].errors?.minlength"> º La contraseña debe
+                                        tener
+                                        minimo 8 caracteres
+                                        !!!</p>
+                                </div>
+                                <div
+                                    *ngIf="!registerUser.controls['email'].valid && (registerUser.controls['email'].dirty || registerUser.controls['email'].touched)">
+                                    <p *ngIf="registerUser.controls['email'].errors?.email"> º El formato del correo no
+                                        es
+                                        corecto !!!</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>

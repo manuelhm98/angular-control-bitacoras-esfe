@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -15,21 +15,14 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class NuevoUsuarioComponent implements OnInit {
 
+  modelIsValid: boolean = false;
   /**AREGLO DE ROLES */
   public roles: Roles[] = [];
   public user: any;
+  public registerUser: FormGroup;
 
 
 
-  /**VALIDACION DE FORMULARIO */
-  public registerUser = this.fb.group({
-    roleId: ['', [Validators.required]],
-    nombre: ['', [Validators.required]],
-    apellido: ['', [Validators.required]],
-    email: ['', [Validators.email, Validators.required]],
-    pass: ['', [Validators.required]],
-    estado: ['1', [Validators.required]]
-  })
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +34,14 @@ export class NuevoUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id))
     this.cargarRole();
+    this.registerUser = this.fb.group({
+      roleId: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      email: ['', [Validators.email, Validators.required]],
+      pass: ['', [Validators.required, Validators.minLength(8)]],
+      estado: ['1', [Validators.required]]
+    })
   }
 
   cargarUsuario(id: number) {

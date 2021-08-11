@@ -21,13 +21,16 @@
 
                         <br>
                         <div class="d-grid gap-2">
-                            <button routerLink="./lista-roles/" class="btn btn-success" type="submit">
+                            <button [disabled]="!registerForm.valid" routerLink="./lista-roles/" class="btn btn-success"
+                                type="submit">
                                 Agregar
                             </button>
                         </div>
                     </form>
-
-
+                    <br>
+                    <div *ngIf="!registerForm.valid && registerForm.touched" class="alert alert-danger" role="alert">
+                        Nose permiten campos vacios !!!
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" (click)="cerrarModal()">

@@ -21,6 +21,7 @@ export class ListaRolesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingRole();
+    //* RECIBE UN EVENTO PARA RECARGAR EL COMPONENTE
     this.roleService.newRegister.pipe(
       delay(100)
     ).subscribe(resp => {
@@ -40,9 +41,7 @@ export class ListaRolesComponent implements OnInit {
     })
   }
 
-
-
-  //Paginacion 
+  //* Paginacion 
   changePage(valor: number) {
     this.page += valor;
     if (this.page <= 1) {

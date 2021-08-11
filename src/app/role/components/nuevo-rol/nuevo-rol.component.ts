@@ -16,6 +16,9 @@ export class NuevoRolComponent implements OnInit {
   suscription: Subscription
   role: Roles;
   IdRole = 0;
+
+  modelIsValid: boolean = false;
+
   /****VALIDACION DE FORMULARIO*****/
   public registerForm = this.fb.group({
     Roles: ['', [Validators.required]],
