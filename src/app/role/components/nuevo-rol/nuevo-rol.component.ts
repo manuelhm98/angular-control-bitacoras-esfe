@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RolesService } from '../../services/roles.service';
 
 import Swal from 'sweetalert2'
-import { Subscription } from 'rxjs';
 import { Roles } from '../../models/roles';
 
 @Component({
@@ -13,36 +12,32 @@ import { Roles } from '../../models/roles';
 })
 export class NuevoRolComponent implements OnInit {
 
-  suscription: Subscription
   role: Roles;
   IdRole = 0;
-
-
-
-  /****VALIDACION DE FORMULARIO*****/
-  public registerForm = this.fb.group({
-    Roles: ['', [Validators.required]],
-    Estado: ['1', [Validators.required]]
-
-  })
+  registerForm: FormGroup;
 
 
   constructor(private fb: FormBuilder,
     public roleService: RolesService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
-
+    /****VALIDACION DE FORMULARIO*****/
+    this.registerForm = this.fb.group({
+      Roles: ['', Validators.required],
+      Estado: 1
+    })
   }
 
   cerrarModal() {
     this.roleService.cerrarModal();
+    this.registerForm.reset();
   }
   /**REGISTRAR NUEVO ROL */
   registerNewRol() {
 
     this.roleService.createNewRole(this.registerForm.value).subscribe(resp => {
-      console.log(resp);
       Swal.fire({
         icon: 'success',
         title: 'Ok...',
@@ -51,12 +46,12 @@ export class NuevoRolComponent implements OnInit {
         timer: 2000
       })
       this.roleService.newRegister.emit(resp);
+      this.registerForm.reset();
       this.roleService.getListRole();
       this.roleService.cerrarModal();
-      this.registerForm.reset();
+
     }, (err) => {
       if (err.name === "HttpErrorResponse") {
-        console.log(err)
         Swal.fire('Error', 'Servidor no disponible', 'error',)
       }
     });

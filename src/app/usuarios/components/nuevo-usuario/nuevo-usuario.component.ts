@@ -28,7 +28,7 @@ export class NuevoUsuarioComponent implements OnInit {
     private roleService: RolesService,
     private usuarioService: UsuariosService,
     private activatedRoute: ActivatedRoute,
-    private router: Router) { }
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id))
@@ -39,7 +39,7 @@ export class NuevoUsuarioComponent implements OnInit {
       apellido: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       pass: ['', [Validators.required, Validators.minLength(8)]],
-      estado: ['1', [Validators.required]]
+      estado: 1
     })
   }
 
