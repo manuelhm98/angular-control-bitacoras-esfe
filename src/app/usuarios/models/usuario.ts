@@ -1,5 +1,3 @@
-
-
 export class Usuario {
     usuarioId?: number;
     roleId: number;

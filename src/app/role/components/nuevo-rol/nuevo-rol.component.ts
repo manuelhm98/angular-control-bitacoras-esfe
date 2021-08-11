@@ -17,7 +17,7 @@ export class NuevoRolComponent implements OnInit {
   role: Roles;
   IdRole = 0;
 
-  modelIsValid: boolean = false;
+
 
   /****VALIDACION DE FORMULARIO*****/
   public registerForm = this.fb.group({
@@ -40,17 +40,6 @@ export class NuevoRolComponent implements OnInit {
   }
   /**REGISTRAR NUEVO ROL */
   registerNewRol() {
-    console.log(this.registerForm.value)
-    if (this.registerForm.invalid) {
-      return Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No se permiten campos vacios',
-        showConfirmButton: false,
-        timer: 1000
-      })
-
-    }
 
     this.roleService.createNewRole(this.registerForm.value).subscribe(resp => {
       console.log(resp);

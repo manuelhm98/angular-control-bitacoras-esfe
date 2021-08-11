@@ -15,7 +15,6 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class NuevoUsuarioComponent implements OnInit {
 
-  modelIsValid: boolean = false;
   /**AREGLO DE ROLES */
   public roles: Roles[] = [];
   public user: any;
