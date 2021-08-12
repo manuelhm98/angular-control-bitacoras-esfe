@@ -73,7 +73,6 @@ export class NuevoUsuarioComponent implements OnInit {
         UsuarioId: this.user.UsuarioID
       }
       this.usuarioService.updateUser(data).subscribe(resp => {
-        console.log(resp)
         Swal.fire({
           icon: 'success',
           title: 'Ok...',
@@ -97,7 +96,6 @@ export class NuevoUsuarioComponent implements OnInit {
       }
 
       this.usuarioService.createNewUser(this.registerUser.value).subscribe(resp => {
-        console.log(resp);
         Swal.fire({
           icon: 'success',
           title: 'Ok...',
@@ -117,8 +115,6 @@ export class NuevoUsuarioComponent implements OnInit {
     }
 
   }
-
-
 
   cargarRole() {
     this.roleService.listRoles().subscribe(data => {

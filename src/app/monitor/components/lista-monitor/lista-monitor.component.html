@@ -1,98 +1,23 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a routerLink="../nuevo-usuario/0" class="btn btn-primary">Nuevo Monitor</a>
+    <a class="btn btn-primary" (click)="abrirModal()">Nuevo Monitor</a>
 </div>
 <br>
-<div class="row row-cols-1 row-cols-md-5 g-8">
-    <div class="col">
+<div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__bounce">
+    <div class="col" *ngFor="let monitors of monitor">
         <div class="card">
             <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Codigo: m-11</h5>
-                <p class="card-text">LG 20202</p>
-                <p class="card-text">22 Pulgadas</p>
-                <div class="text-nowrap text-center"><a class="cursor" style="cursor: pointer;">
+                <h5 class="card-title">Codigo: {{monitors.Codigo}}</h5>
+                <p class="card-text">{{monitors.Modelo}}</p>
+                <p class="card-text">{{monitors.Pulgadas}} Pulgadas</p>
+                <div class="text-nowrap text-center">
+                    <a [routerLink]="['/monitor','nuevo-monitor',]" class="cursor" style="cursor: pointer;"
+                        (click)="abrirModal()" [routerLink]="['/monitor','nuevo-monitor', monitors.MonitorID ]">
                         <i class=" far fa-edit fa-lg text-info"></i>
                     </a>
                     |
-                    <a style="cursor: pointer;">
-                        <i class="far fa-trash-alt fa-lg text-danger"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
-                style="width: 500px; height: 100px;">
-            <div class="card-body">
-                <h5 class="card-title">Codigo: m-11</h5>
-                <p class="card-text">LG 20202</p>
-                <p class="card-text">22 Pulgadas</p>
-                <div class="text-nowrap text-center"><a class="cursor" style="cursor: pointer;">
-                        <i class=" far fa-edit fa-lg text-info"></i>
-                    </a>
-                    |
-                    <a style="cursor: pointer;">
-                        <i class="far fa-trash-alt fa-lg text-danger"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col">
-        <div class="card">
-            <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
-                style="width: 500px; height: 100px;">
-            <div class="card-body">
-                <h5 class="card-title">Codigo: m-11</h5>
-                <p class="card-text">LG 20202</p>
-                <p class="card-text">22 Pulgadas</p>
-                <div class="text-nowrap text-center"><a class="cursor" style="cursor: pointer;">
-                        <i class=" far fa-edit fa-lg text-info"></i>
-                    </a>
-                    |
-                    <a style="cursor: pointer;">
-                        <i class="far fa-trash-alt fa-lg text-danger"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
-                style="width: 500px; height: 100px;">
-            <div class="card-body">
-                <h5 class="card-title">Codigo: m-11</h5>
-                <p class="card-text">LG 20202</p>
-                <p class="card-text">22 Pulgadas</p>
-                <div class="text-nowrap text-center"><a class="cursor" style="cursor: pointer;">
-                        <i class=" far fa-edit fa-lg text-info"></i>
-                    </a>
-                    |
-                    <a style="cursor: pointer;">
-                        <i class="far fa-trash-alt fa-lg text-danger"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
-                style="width: 500px; height: 100px;">
-            <div class="card-body">
-                <h5 class="card-title">Codigo: m-11</h5>
-                <p class="card-text">LG 20202</p>
-                <p class="card-text">22 Pulgadas</p>
-                <div class="text-nowrap text-center"><a class="cursor" style="cursor: pointer;">
-                        <i class=" far fa-edit fa-lg text-info"></i>
-                    </a>
-                    |
-                    <a style="cursor: pointer;">
+                    <a (click)="deleteMonitor(monitors.MonitorID)" style="cursor: pointer;">
                         <i class="far fa-trash-alt fa-lg text-danger"></i>
                     </a>
                 </div>
@@ -102,10 +27,11 @@
 </div>
 <br>
 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-    <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
     <label class="btn btn-outline-primary" for="btncheck1">
         < Anterior </label>
             <br>
-            <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
             <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
 </div>
+<app-nuevo-monitor></app-nuevo-monitor>

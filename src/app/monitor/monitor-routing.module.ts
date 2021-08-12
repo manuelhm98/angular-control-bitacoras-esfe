@@ -7,7 +7,7 @@ const routes: Routes = [{
   path: '',
   children: [
     { path: 'lista-monitor', component: ListaMonitorComponent, data: { titulo: 'Lista de Monitores' } },
-    { path: 'nuevo-monitor', component: NuevoMonitorComponent, data: { titulo: 'Registrar Monitor' } }, { path: '**', redirectTo: 'lista-monitor' }
+    { path: 'nuevo-monitor/:id', component: NuevoMonitorComponent, data: { titulo: 'Registrar Monitor' } }, { path: '**', redirectTo: 'lista-monitor' }
   ]
 }];
 
