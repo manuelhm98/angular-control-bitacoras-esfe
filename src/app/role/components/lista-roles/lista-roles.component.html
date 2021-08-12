@@ -3,15 +3,17 @@
 </div>
 <br>
 <div class="table-responsive">
-    <table class="table">
+    <table class="table  animate__animated animate__bounceInRight">
         <thead class="table-dark">
             <tr>
+                <th scope="col">Id</th>
                 <th scope="col">roles</th>
                 <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let role of roles">
+                <td>{{role.RoleID}}</td>
                 <td>{{role.Roles}}</td>
                 <td>
                     <i class="far fa-edit fa-lg text-info" style="cursor: pointer;" (click)="dataRole(role)"></i>

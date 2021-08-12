@@ -28,10 +28,12 @@ export class NuevoUsuarioComponent implements OnInit {
     private roleService: RolesService,
     private usuarioService: UsuariosService,
     private activatedRoute: ActivatedRoute,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id))
+    this.activatedRoute.params.subscribe(({ id }) => this.cargarUsuario(id));
+
     this.cargarRole();
     this.registerUser = this.fb.group({
       roleId: ['', [Validators.required]],
@@ -50,8 +52,6 @@ export class NuevoUsuarioComponent implements OnInit {
         return;
       }
       this.user = data
-
-      console.log(this.user)
 
       this.registerUser.patchValue({
         roleId: this.user.RoleID,
@@ -83,6 +83,7 @@ export class NuevoUsuarioComponent implements OnInit {
         })
         this.usuarioService.loadUser();
         this.registerUser.reset();
+        return this.router.navigate(['/usuarios'])
       })
     } else {
       if (this.registerUser.invalid) {
