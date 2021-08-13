@@ -7,7 +7,7 @@ const routes: Routes = [{
   path: '',
   children: [
     { path: 'lista-ups', component: ListaUpsComponent, data: { titulo: 'Ups' } },
-    { path: 'nuevo-ups', component: NuevoUpsComponent, data: { titulo: 'Registrar Ups' } },
+    { path: 'nuevo-ups/:id', component: NuevoUpsComponent, data: { titulo: 'Registrar Ups' } },
     { path: '**', redirectTo: 'lista-ups' }
   ]
 }];

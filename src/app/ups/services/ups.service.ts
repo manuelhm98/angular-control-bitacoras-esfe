@@ -1,7 +1,7 @@
-import { HttpClient, HttpHandler } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { UpdateCallback } from '@popperjs/core';
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { cargarUps } from 'src/app/shared/Interface/cargar-ups.interfaces';
 import { environment } from 'src/environments/environment';
 import { Ups } from '../models/ups';
 
@@ -11,8 +11,28 @@ const base_url = environment.base_url;
 })
 export class UpsService {
 
+  //* EVENTS
+  public newEvent: EventEmitter<Ups> = new EventEmitter<Ups>();
+
   constructor(private http: HttpClient) { }
 
+
+  //? MODALS 
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+
+  //TODO METODOS 
   //* CREATE 
   createUps(ups: Ups): Observable<Ups> {
     return this.http.post<Ups>(`${base_url}/ups`, ups);
@@ -31,7 +51,7 @@ export class UpsService {
   //* LIST PAGING 
   loadUps(page: number = 1) {
     const url = `${base_url}/ups/lista?page=${page}`;
-    return this.http.get(url);
+    return this.http.get<cargarUps>(url);
   }
 
   //* LIST UPS 

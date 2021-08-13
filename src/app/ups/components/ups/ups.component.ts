@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cpu',
-  templateUrl: './cpu.component.html',
-  styleUrls: ['./cpu.component.css']
+  templateUrl: './ups.component.html',
+  styleUrls: ['./ups.component.css']
 })
-export class CpuComponent implements OnInit {
+export class UpsComponent implements OnInit {
 
   constructor() { }
 

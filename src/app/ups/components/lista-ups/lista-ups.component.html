@@ -1,1 +1,35 @@
-<p>lista-ups works!</p>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-primary" (click)="abrirModal()">Nuevo Monitor</a>
+</div>
+<br>
+<div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
+    <div class="col" *ngFor="let ups of upss">
+        <div class="card">
+            <img src="../../../../assets/img/ups.svg" class="img-fluid" alt="..." style="width: 500px; height: 100px;">
+            <div class="card-body">
+                <h5 class="card-title">Codigo:{{ups.Codigo}} </h5>
+
+                <div class="text-nowrap text-center">
+                    <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
+                        [routerLink]="['/ups','nuevo-ups', ups.UpsID ]">
+                        <i class=" far fa-edit fa-lg text-info"></i>
+                    </a>
+                    |
+                    <a style="cursor: pointer;" (click)="deleteUps(ups.UpsID)">
+                        <i class="far fa-trash-alt fa-lg text-danger"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btncheck1">
+        < Anterior </label>
+            <br>
+            <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
+</div>
+<app-nuevo-ups></app-nuevo-ups>
