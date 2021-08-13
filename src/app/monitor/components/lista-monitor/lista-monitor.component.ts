@@ -63,7 +63,6 @@ export class ListaMonitorComponent implements OnInit {
     this.monitorService.loadMonitor(this.page).subscribe(({ TotalRegistros, Monitors }) => {
       this.totalMonitor = TotalRegistros;
       this.monitor = Monitors
-      console.log(this.monitor)
     })
   }
 

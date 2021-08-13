@@ -2,7 +2,7 @@
     <a class="btn btn-primary" (click)="abrirModal()">Nuevo Monitor</a>
 </div>
 <br>
-<div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__bounce">
+<div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let monitors of monitor">
         <div class="card">
             <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
@@ -12,8 +12,8 @@
                 <p class="card-text">{{monitors.Modelo}}</p>
                 <p class="card-text">{{monitors.Pulgadas}} Pulgadas</p>
                 <div class="text-nowrap text-center">
-                    <a [routerLink]="['/monitor','nuevo-monitor',]" class="cursor" style="cursor: pointer;"
-                        (click)="abrirModal()" [routerLink]="['/monitor','nuevo-monitor', monitors.MonitorID ]">
+                    <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
+                        [routerLink]="['/monitor','nuevo-monitor', monitors.MonitorID ]">
                         <i class=" far fa-edit fa-lg text-info"></i>
                     </a>
                     |
