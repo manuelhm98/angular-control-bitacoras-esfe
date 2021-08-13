@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProcesadorService } from '../../services/procesador.service';
 
 @Component({
   selector: 'app-nuevo-procesador',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevoProcesadorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public procesadorService: ProcesadorService
+  ) { }
 
   ngOnInit(): void {
   }
-
+  cerrarModal() {
+    this.procesadorService.cerrarModal();
+  }
 }

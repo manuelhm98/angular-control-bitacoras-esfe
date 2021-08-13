@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Procesador } from '../models/procesador';
@@ -10,7 +10,25 @@ const base_url = environment.base_url;
 })
 export class ProcesadorService {
 
+  public newEvent: EventEmitter<Procesador> = new EventEmitter<Procesador>();
+
   constructor(private http: HttpClient) { }
+
+  //? MODALS 
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+  //TODO METODOS
 
   //* CREATE 
   createProcesador(procesador: Procesador): Observable<Procesador> {
