@@ -3,20 +3,21 @@
 </div>
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
-    <div class="col">
+    <div class="col" *ngFor="let procesadors of procesador">
         <div class="card">
             <img src="../../../../assets/img/procesador.svg" class="img-fluid" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Modelo: </h5>
-                <p class="card-text">Velocida: </p>
+                <h5 class="card-title">Modelo: {{procesadors.Modelo}}</h5>
+                <p class="card-text">Velocida: {{procesadors.Velocidad}}</p>
                 <p class="card-text"></p>
                 <div class="text-nowrap text-center">
-                    <a class="cursor" style="cursor: pointer;" (click)="abrirModal()">
+                    <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
+                        [routerLink]="['/procesador','nuevo-procesador', procesadors.ProcesadorID ]">
                         <i class=" far fa-edit fa-lg text-info"></i>
                     </a>
                     |
-                    <a style="cursor: pointer;">
+                    <a style="cursor: pointer;" (click)="deleteProcesador(procesadors.ProcesadorID)">
                         <i class="far fa-trash-alt fa-lg text-danger"></i>
                     </a>
                 </div>

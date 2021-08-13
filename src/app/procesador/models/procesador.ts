@@ -1,6 +1,6 @@
 export class Procesador {
     ProcesadorID: number;
     Modelo: string;
-    Velocida: string;
+    Velocidad: string;
     Estado: string;
 }

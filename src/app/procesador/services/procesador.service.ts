@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { cargarProcesador } from 'src/app/shared/Interface/cargar-procesador';
 import { environment } from 'src/environments/environment';
 import { Procesador } from '../models/procesador';
 
@@ -48,7 +49,7 @@ export class ProcesadorService {
   //* LIST PAGING 
   loadProcesador(page: number = 1) {
     const url = `${base_url}/procesador/lista?page=${page}`
-    return this.http.get(url);
+    return this.http.get<cargarProcesador>(url);
   }
 
   //* LIST PROCESADOR 
