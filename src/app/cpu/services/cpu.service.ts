@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { cargarCpu } from 'src/app/shared/Interface/cargar-cpu.interfaces';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,27 @@ const base_url = environment.base_url;
 })
 export class CpuService {
 
+  //* EVENTS
+  public newEvent: EventEmitter<Cpu> = new EventEmitter<Cpu>();
+
   constructor(private http: HttpClient) { }
+
+
+  //? MODALS 
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+  //TODO METODOS 
 
   //* CREATE 
   createCpu(cpu: Cpu): Observable<Cpu> {
@@ -27,12 +47,12 @@ export class CpuService {
 
   //* DELETE
   deleteCpu(id: number): Observable<Cpu> {
-    return this.http.delete(`${base_url}/cpu/${id}`);
+    return this.http.delete<Cpu>(`${base_url}/cpu/${id}`);
   }
 
   //* LIST PAGING
   loadingCpu(page: number = 1) {
-    const url = `${base_url}/cpu?page=${page}`;
+    const url = `${base_url}/cpu/lista?page=${page}`;
     return this.http.get<cargarCpu>(url);
   }
 

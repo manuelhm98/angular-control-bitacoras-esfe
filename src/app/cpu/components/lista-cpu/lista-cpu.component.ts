@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CpuService } from '../../services/cpu.service';
 
 @Component({
   selector: 'app-lista-cpu',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaCpuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cpuService: CpuService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  abrirModal() {
+    this.cpuService.abrirModal();
+  }
+
+  changePage() {
+
+  }
 }

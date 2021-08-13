@@ -1,7 +1,7 @@
 export class Cpu {
     CpuID: number;
     ProcesadorID: number;
-    codigo: string;
+    Codigo: string;
     Ram: string;
     Almacenamiento: string;
     Estado: number;
