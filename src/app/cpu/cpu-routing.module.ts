@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'lista-cpu', component: ListaCpuComponent, data: { titulo: 'Lista Cpu' } },
-      { path: 'nuevo-cpu', component: NuevoCpuComponent, data: { titulo: 'Registrar Cpu' } },
+      { path: 'nuevo-cpu/:id', component: NuevoCpuComponent, data: { titulo: 'Registrar Cpu' } },
       { path: '**', redirectTo: 'lista-cpu' },
     ]
   }

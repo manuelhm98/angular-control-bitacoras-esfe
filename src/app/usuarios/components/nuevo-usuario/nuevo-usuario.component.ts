@@ -105,7 +105,6 @@ export class NuevoUsuarioComponent implements OnInit {
         })
         this.usuarioService.loadUser();
         this.registerUser.reset();
-        console.log(this.registerUser)
       }, (err) => {
         if (err.name === "HttpErrorResponse") {
           console.log(err)

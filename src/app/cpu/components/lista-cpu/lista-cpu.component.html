@@ -3,21 +3,26 @@
 </div>
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
-    <div class="col">
+    <div class="col" *ngFor="let cpus of cpu">
         <div class="card">
             <img src="../../../../assets/img/cpu-tower.svg" class="img-fluid" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Codigo: </h5>
-                <p class="card-text"></p>
-                <p class="card-text"> Pulgadas</p>
+                <h6 class="card-title">Codigo: {{cpus.Codigo}}</h6>
+                <p class="card-text">
+                    RAM: {{cpus.Ram}}
+                    <br>
+                    DISCO: {{cpus.Almacenamiento}}
+                </p>
+
+                <p class="card-text"> {{cpus.Procesador.Modelo}} - {{cpus.Procesador.Velocidad}}</p>
                 <div class="text-nowrap text-center">
                     <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
-                        [routerLink]="['/cpu','nuevo-cpu']">
+                        [routerLink]="['/cpu','nuevo-cpu', cpus.CpuID]">
                         <i class=" far fa-edit fa-lg text-info"></i>
                     </a>
                     |
-                    <a style="cursor: pointer;">
+                    <a (click)="deleteCpu(cpus.CpuID)" style="cursor: pointer;">
                         <i class="far fa-trash-alt fa-lg text-danger"></i>
                     </a>
                 </div>
@@ -27,11 +32,11 @@
 </div>
 <br>
 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-    <input (click)="changePage()" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+    <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
     <label class="btn btn-outline-primary" for="btncheck1">
         < Anterior </label>
             <br>
-            <input (click)="changePage()" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+            <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
             <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
 </div>
 <app-nuevo-cpu></app-nuevo-cpu>
