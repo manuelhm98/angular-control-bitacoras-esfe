@@ -14,6 +14,7 @@ import { CpuService } from '../../services/cpu.service';
 export class NuevoCpuComponent implements OnInit {
 
   public procesador: Procesador[] = [];
+  public filterProc: Procesador[] = [];
   public cpu: any;
   form: FormGroup
 
@@ -29,14 +30,22 @@ export class NuevoCpuComponent implements OnInit {
     this.activatedRoute.params.subscribe(({ id }) => this.cargarCpu(id));
     this.loadProcesadors();
     this.form = this.fb.group({
-      ProcesadorID: ['', Validators.required],
+      ProcesadorID: [Validators.required],
       Codigo: ['', Validators.required],
       Ram: ['', Validators.required],
       Almacenamiento: ['', Validators.required],
+      search: '',
       Estado: 1
     })
   }
 
+  searchProcesador() {
+    let text: string = this.form.controls['search'].value
+    this.filterProc = this.procesador.filter((pro) =>
+      pro.Modelo.toLowerCase().includes(text.toLowerCase()) ||
+      pro.Velocidad.toLowerCase().includes(text.toLowerCase()))
+
+  }
   cerrarModal() {
     this.cpuService.cerrarModal();
     this.form.reset();
@@ -118,6 +127,7 @@ export class NuevoCpuComponent implements OnInit {
   loadProcesadors() {
     this.procesadorService.listProcesador().subscribe(data => {
       this.procesador = data as Procesador[];
+      this.filterProc = data as Procesador[];
     })
   }
 }
