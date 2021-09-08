@@ -1,6 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { cargarTipoArea } from 'src/app/shared/Interface/cargar-tipo-area.interfaces';
 import { environment } from 'src/environments/environment';
 import { TipoArea } from '../models/tipo-area';
 
@@ -50,7 +51,7 @@ export class TipoAreaService {
   //* LIST PAGING 
   loadTipoAreas(page: number = 1) {
     const url = `${base_url}/tipoarea/lista?page=${page}`;
-    return this.http.get(url);
+    return this.http.get<cargarTipoArea>(url);
   }
 
   //* LIST TIPO AREAS 

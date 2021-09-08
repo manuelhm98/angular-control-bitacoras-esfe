@@ -13,7 +13,6 @@ import { Roles } from '../../models/roles';
 export class NuevoRolComponent implements OnInit {
 
   role: Roles;
-  IdRole = 0;
   registerForm: FormGroup;
 
 

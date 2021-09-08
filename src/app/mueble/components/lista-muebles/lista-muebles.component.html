@@ -4,11 +4,11 @@
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let muebles of mueble">
-        <div class="card">
+        <div class="card shadow-lg  mb-2">
             <img src="../../../../assets/img/mueble.svg" class="img-fluid" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Codigo: {{muebles.Codigo}}</h5>
+                <h6 class="card-title">Codigo: {{muebles.Codigo}}</h6>
 
                 <div class="text-nowrap text-center">
                     <a (click)="abrirModal()" [routerLink]="['/mueble','nuevo-mueble', muebles.MuebleID ]"

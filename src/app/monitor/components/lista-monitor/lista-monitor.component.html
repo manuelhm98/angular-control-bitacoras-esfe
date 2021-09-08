@@ -4,11 +4,11 @@
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let monitors of monitor">
-        <div class="card shadow-lg mb-4">
+        <div class="card shadow-lg mb-2">
             <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Codigo: {{monitors.Codigo}}</h5>
+                <h6 class="card-title">Codigo: {{monitors.Codigo}}</h6>
                 <p class="card-text">{{monitors.Modelo}}</p>
                 <p class="card-text">{{monitors.Pulgadas}} Pulgadas</p>
                 <div class="text-nowrap text-center">

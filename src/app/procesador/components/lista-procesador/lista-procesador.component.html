@@ -4,11 +4,11 @@
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let procesadors of procesador">
-        <div class="card">
-            <img src="../../../../assets/img/procesador.svg" class="img-fluid" alt="..."
+        <div class="card shadow-lg  mb-2">
+            <img src="../../../../assets/img/procesador.svg" class="img-fluid p-2" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h5 class="card-title">Modelo: {{procesadors.Modelo}}</h5>
+                <h6 class="card-title">Modelo: {{procesadors.Modelo}}</h6>
                 <p class="card-text">Velocida: {{procesadors.Velocidad}}</p>
                 <p class="card-text"></p>
                 <div class="text-nowrap text-center">
