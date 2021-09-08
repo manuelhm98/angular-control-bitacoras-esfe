@@ -1,5 +1,5 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TipoArea } from '../models/tipo-area';
@@ -10,7 +10,27 @@ const base_url = environment.base_url;
 })
 export class TipoAreaService {
 
+  //* EVENT 
+  public newEvent: EventEmitter<TipoArea> = new EventEmitter<TipoArea>();
+
   constructor(private http: HttpClient) { }
+
+  //? MODALS 
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+
+  //TODO METODOS 
 
   //* CREATE 
   createTipoArea(tipoArea: TipoArea): Observable<TipoArea> {

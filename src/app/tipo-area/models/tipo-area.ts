@@ -1,5 +1,5 @@
 export class TipoArea {
-    TipoArea: number;
+    TipoAreaID: number;
     Tipo: string;
     Estado: number;
 }

@@ -12,4 +12,12 @@ export class ListaTipoAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirModal() {
+
+  }
+
+  changePage() {
+
+  }
+
 }
