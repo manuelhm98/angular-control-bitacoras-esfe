@@ -5,10 +5,10 @@
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let muebles of mueble">
         <div class="card shadow-lg  mb-2">
-            <img src="../../../../assets/img/mueble.svg" class="img-fluid" alt="..."
+            <img src="../../../../assets/img/mueble.svg" class="img-fluid shadow-lg" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h6 class="card-title">Codigo: {{muebles.Codigo}}</h6>
+                <h6 class="card-title badge bg-dark">Codigo: {{muebles.Codigo}}</h6>
 
                 <div class="text-nowrap text-center">
                     <a (click)="abrirModal()" [routerLink]="['/mueble','nuevo-mueble', muebles.MuebleID ]"
@@ -25,7 +25,7 @@
     </div>
 </div>
 <br>
-<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+<div class="btn-group shadow-lg" role="group" aria-label="Basic checkbox toggle button group">
     <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
     <label (click)="changePage(-1)" class="btn btn-outline-primary" for="btncheck1">
         < Anterior </label>

@@ -49,6 +49,7 @@ export class NuevoCpuComponent implements OnInit {
   cerrarModal() {
     this.cpuService.cerrarModal();
     this.form.reset();
+    return this.router.navigate(['/cpu'])
   }
 
   cargarCpu(id: number) {

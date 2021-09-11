@@ -100,5 +100,7 @@ export class NuevoUpsComponent implements OnInit {
 
   cerrarModal() {
     this.upsService.cerrarModal();
+    this.form.reset();
+    return this.router.navigate(['/ups'])
   }
 }

@@ -17,4 +17,12 @@ export class ListaAreaComponent implements OnInit {
   abrirModal() {
     this.areaService.abrirModal();
   }
+
+  changePage() {
+
+  }
+
+  deleteArea() {
+
+  }
 }

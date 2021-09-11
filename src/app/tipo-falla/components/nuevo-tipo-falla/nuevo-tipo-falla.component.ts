@@ -33,6 +33,8 @@ export class NuevoTipoFallaComponent implements OnInit {
 
   cerrarModal() {
     this.tipoFallaService.cerrarModal();
+    this.form.reset();
+    return this.router.navigate(['/tipo-falla'])
   }
 
   registerTipoFalla() {

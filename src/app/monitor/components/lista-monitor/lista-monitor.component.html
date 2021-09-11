@@ -5,12 +5,13 @@
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
     <div class="col" *ngFor="let monitors of monitor">
         <div class="card shadow-lg mb-2">
-            <img src="../../../../assets/img/monitors.svg" class="img-fluid" alt="..."
+            <img src="../../../../assets/img/monitors.svg" class="img-fluid shadow-lg" alt="..."
                 style="width: 500px; height: 100px;">
             <div class="card-body">
-                <h6 class="card-title">Codigo: {{monitors.Codigo}}</h6>
-                <p class="card-text">{{monitors.Modelo}}</p>
-                <p class="card-text">{{monitors.Pulgadas}} Pulgadas</p>
+                <h6 class="card-title badge bg-dark">Codigo: {{monitors.Codigo}}</h6>
+                <p class="badge bg-primary">MODELO: {{monitors.Modelo}}</p>
+
+                <p class="badge bg-success">{{monitors.Pulgadas}} Pulgadas</p>
                 <div class="text-nowrap text-center">
                     <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
                         [routerLink]="['/monitor','nuevo-monitor', monitors.MonitorID ]">
@@ -26,7 +27,7 @@
     </div>
 </div>
 <br>
-<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+<div class="btn-group shadow-lg" role="group" aria-label="Basic checkbox toggle button group">
     <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
     <label class="btn btn-outline-primary" for="btncheck1">
         < Anterior </label>

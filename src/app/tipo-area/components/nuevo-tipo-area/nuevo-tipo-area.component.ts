@@ -35,6 +35,7 @@ export class NuevoTipoAreaComponent implements OnInit {
   cerrarModal() {
     this.tipoAreaService.cerrarModal();
     this.form.reset();
+    return this.router.navigate(['/tipo-area'])
   }
 
   registerTipoArea() {

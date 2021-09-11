@@ -50,6 +50,7 @@ export class NuevoProcesadorComponent implements OnInit {
 
   cerrarModal() {
     this.procesadorService.cerrarModal();
+    this.form.reset();
     return this.router.navigate(['/procesador'])
   }
 
