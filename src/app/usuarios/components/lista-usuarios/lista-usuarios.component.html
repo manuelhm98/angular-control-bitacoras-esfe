@@ -5,41 +5,67 @@
 <div class="row">
     <div class="col-md-12">
         <h6>Listado de Usuarios ({{totalUsuarios}}) desde - {{page}}</h6>
-        <div class="table-responsive shadow-lg  mb-2">
-            <table class="table animate__animated animate__bounceInRight">
-                <thead class="table-dark">
+        <form [formGroup]="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-text mb-3"><i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" class="form-control mb-3" placeholder="Buscar por Nombre ..."
+                                formControlName="names" (keyup)="searchUser()">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-text mb-3"><i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" class="form-control mb-3" placeholder="Buscar por Rol ..." #name
+                                formControlName="role" (keyup)="searchUser()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
 
-                    <tr>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Rol</th>
-                        <th scope="col">Acciones</th>
+    </div>
+    <div class="table-responsive shadow-lg  mb-2">
+        <table class="table animate__animated animate__bounceInRight">
+            <thead class="table-dark">
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let usuario of usuarios">
-                        <td>{{usuario.Nombre}}</td>
-                        <td>{{usuario.Apellido}}</td>
-                        <td>{{usuario.Role.Roles}}</td>
+                <tr>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Acciones</th>
 
-                        <td class="text-nowrap text-center">
-                            <a class="cursor" style="cursor: pointer;"
-                                [routerLink]="['/usuarios','nuevo-usuario', usuario.UsuarioID ]">
-                                <i class=" far fa-edit fa-lg text-info"></i>
-                            </a>
-                            |
-                            <a (click)="deleteUser(usuario.Nombre, usuario.UsuarioID)" style="cursor: pointer;">
-                                <i class="far fa-trash-alt fa-lg text-danger"></i>
-                            </a>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let usuario of filterUser">
+                    <td>{{usuario.Nombre}}</td>
+                    <td>{{usuario.Apellido}}</td>
+                    <td>{{usuario.Role.Roles}}</td>
 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                    <td class="text-nowrap text-center">
+                        <a class="cursor" style="cursor: pointer;"
+                            [routerLink]="['/usuarios','nuevo-usuario', usuario.UsuarioID ]">
+                            <i class=" far fa-edit fa-lg text-info"></i>
+                        </a>
+                        |
+                        <a (click)="deleteUser(usuario.Nombre, usuario.UsuarioID)" style="cursor: pointer;">
+                            <i class="far fa-trash-alt fa-lg text-danger"></i>
+                        </a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
+
 
 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
     <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">

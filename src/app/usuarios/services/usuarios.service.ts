@@ -26,9 +26,21 @@ export class UsuariosService {
   }
 
   //* CARGAR USUARIOS PAGINADOS 
-  loadUser(page: number = 1) {
-    const url = `${base_url}/usuario/lista?page=${page}`
-    return this.http.get<cargarUsuario>(url)
+  loadUser(page: number = 1, name: string = "", rol: string = "") {
+    if (name != "" && rol != "") {
+      const url = `${base_url}/usuario/lista/?page=${page}&name=${name}&rol=${rol}`
+      return this.http.get<cargarUsuario>(url)
+    } if (name != "") {
+      const url = `${base_url}/usuario/lista/?page=${page}&name=${name}`
+      return this.http.get<cargarUsuario>(url)
+    } if (rol != "") {
+      const url = `${base_url}/usuario/lista/?page=${page}&rol=${rol}`
+      return this.http.get<cargarUsuario>(url)
+    }
+    else {
+      const url = `${base_url}/usuario/lista/?page=${page}`
+      return this.http.get<cargarUsuario>(url)
+    }
   }
 
   //* ELIMINAR USUARIOS
