@@ -5,16 +5,16 @@
         </div>
         <br>
         <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
-            <div class="col">
+            <div class="col" *ngFor="let areas of area">
                 <div class="card shadow-lg  mb-2">
                     <img src="../../../../assets/img/Area.svg" class="img-fluid p-2 shadow-lg" alt="..."
                         style="width: 500px; height: 100px;">
                     <div class="card-body">
-                        <h6 class="card-title">Codigo: </h6>
+                        <h6 class="card-title">Nombre: {{areas.NombreArea}}</h6>
                         <p class="card-text">
-                            RAM:
+                            Encargado: {{areas.Usuario.Nombre}} {{areas.Usuario.Apellido}}
                             <br>
-                            DISCO:
+                            Tipo: {{areas.TipoArea.Tipo}}
                         </p>
                         <p class="card-text"> </p>
                         <div class="text-nowrap text-center">
@@ -33,11 +33,11 @@
         </div>
         <br>
         <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-            <input (click)="changePage()" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+            <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
             <label class="btn btn-outline-primary" for="btncheck1">
                 < Anterior </label>
                     <br>
-                    <input (click)="changePage()" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                    <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
                     <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
         </div>
     </div>

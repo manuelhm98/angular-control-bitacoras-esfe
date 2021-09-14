@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { cargarArea } from 'src/app/shared/Interface/cargar-area.interfaces';
 import { environment } from 'src/environments/environment';
@@ -14,6 +14,8 @@ const base_url = environment.base_url;
 })
 export class AreaService {
 
+  //* EVENTS
+  public newEvent: EventEmitter<Area> = new EventEmitter<Area>();
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,7 @@ export class AreaService {
     this._ocultarModal = true;
   }
 
+  //TODO METODOS 
   //* GUARDAR 
   createArea(area: Area): Observable<Area> {
     return this.http.post<Area>(`${base_url}/area`, area);

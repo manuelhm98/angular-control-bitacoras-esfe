@@ -7,9 +7,10 @@ import { NuevaAreaComponent } from './components/nueva-area/nueva-area.component
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AreasComponent } from './components/areas/areas.component';
 
 @NgModule({
-  declarations: [ListaAreaComponent, NuevaAreaComponent],
+  declarations: [ListaAreaComponent, NuevaAreaComponent, AreasComponent],
   imports: [
     CommonModule,
     AreaRoutingModule,

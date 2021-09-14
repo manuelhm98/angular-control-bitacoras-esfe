@@ -59,4 +59,9 @@ export class UsuariosService {
     return this.http.put(url, usuario)
   }
 
+  //* LIST USER 
+  listUsuarios() {
+    return this.http.get(`${base_url}/usuario`);
+  }
+
 }
