@@ -108,7 +108,7 @@ export class NuevaAreaComponent implements OnInit {
     })
   }
 
-  cargarAreas(id: any): void {
+  cargarAreas(id: number) {
     this.areaService.byIdArea(id).subscribe(data => {
       if (id === 0) {
         return;

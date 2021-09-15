@@ -7,7 +7,7 @@ const routes: Routes = [{
   path: '',
   children: [
     { path: 'lista-fallas', component: ListaFallaComponent, data: { titulo: 'Lista de Fallas' } },
-    { path: 'nueva-fallas', component: NuevaFallaComponent, data: { titulo: 'Registrar Fallas' } },
+    { path: 'nueva-fallas/:id', component: NuevaFallaComponent, data: { titulo: 'Registrar Fallas' } },
     { path: '**', redirectTo: 'lista-fallas' }
   ]
 }];

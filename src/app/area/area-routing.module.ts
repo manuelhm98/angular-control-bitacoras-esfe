@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'lista-area', component: ListaAreaComponent, data: { titulo: 'Lista Areas' } },
-      { path: 'nueva-area', component: NuevaAreaComponent, data: { titulo: 'Nueva Area' } },
+      { path: 'nueva-area/:id', component: NuevaAreaComponent, data: { titulo: 'Nueva Area' } },
       { path: '**', redirectTo: 'lista-area' },
     ],
   },

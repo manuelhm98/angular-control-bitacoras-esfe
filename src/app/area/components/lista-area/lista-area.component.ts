@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 import { Area } from '../../models/area';
 import { AreaService } from '../../services/area.service';
 
@@ -53,7 +54,25 @@ export class ListaAreaComponent implements OnInit {
     this.loadinArea();
   }
 
-  deleteArea() {
-
+  deleteArea(id: number) {
+    Swal.fire({
+      title: '¿Eliminar Area?',
+      text: 'Esta a punto de eliminar una AREA',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si eliminarlo'
+    }).then((result) => {
+      if (result.value) {
+        this.areaService.deleteArea(id)
+          .subscribe(resp => {
+            this.loadinArea();
+            Swal.fire(
+              'AREA eliminado',
+              `AREA eliminado correctamente`,
+              'success'
+            )
+          })
+      }
+    })
   }
 }
