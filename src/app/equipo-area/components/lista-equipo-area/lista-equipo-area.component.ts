@@ -12,4 +12,15 @@ export class ListaEquipoAreaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirModal() {
+
+  }
+
+  changePage(valor: number) {
+
+  }
+
+  deleteEquipoArea() {
+
+  }
 }

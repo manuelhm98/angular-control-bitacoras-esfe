@@ -1,58 +1,60 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a class="btn btn-success rounded-pill shadow-lg" (click)="abrirModal()">Nueva Falla</a>
+  <a class="btn btn-success rounded-pill shadow-lg" (click)="abrirModal()">
+    <i class="fas fa-plus"></i>
+    Agregar
+  </a>
 </div>
 
 <div class="row">
-    <div class="col-md-12">
-        <h6>Listado de Falla</h6>
+  <div class="col-md-12">
+    <h6>Listado de Falla</h6>
 
 
-    </div>
-    <div class="table-responsive shadow-lg  mb-2">
-        <table class="table animate__animated animate__bounceInRight">
-            <thead class="table-dark">
+  </div>
+  <div class="table-responsive shadow-lg  mb-2">
+    <table class="table animate__animated animate__bounceInRight">
+      <thead class="table-dark">
 
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Falla</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Acciones</th>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Falla</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Acciones</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let fallas of falla">
-                    <td>{{fallas.FallaID}}</td>
-                    <td>{{fallas.Descripcion}}</td>
-                    <td>{{fallas.TipoFalla.Tipo}}</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fallas of falla">
+          <td>{{fallas.FallaID}}</td>
+          <td>{{fallas.Descripcion}}</td>
+          <td>{{fallas.TipoFalla.Tipo}}</td>
 
-                    <td class="text-nowrap text-center">
-                        <a class="cursor" style="cursor: pointer;" (click)="abrirModal()" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Editar"
-                            [routerLink]="['/falla','nueva-fallas', fallas.FallaID ]">
-                            <i class=" far fa-edit fa-lg text-info"></i>
-                        </a>
-                        |
-                        <a (click)="deleteFalla(fallas.FallaID)" style="cursor: pointer;" data-bs-toggle="tooltip"
-                            data-bs-placement="top" title="Eliminar">
+          <td class="text-nowrap text-center">
+            <a class="cursor" style="cursor: pointer;" (click)="abrirModal()" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Editar" [routerLink]="['/falla','nueva-fallas', fallas.FallaID ]">
+              <i class=" far fa-edit fa-lg text-info"></i>
+            </a>
+            |
+            <a (click)="deleteFalla(fallas.FallaID)" style="cursor: pointer;" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Eliminar">
 
-                            <i class="far fa-trash-alt fa-lg text-danger"></i>
-                        </a>
+              <i class="far fa-trash-alt fa-lg text-danger"></i>
+            </a>
 
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
 <div class="btn-group shadow-lg" role="group" aria-label="Basic checkbox toggle button group">
-    <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btncheck1">
-        < Anterior </label>
-            <br>
-            <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
+  <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+  <label class="btn btn-outline-primary" for="btncheck1">
+    < Anterior </label>
+      <br>
+      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
 </div>
 <app-nueva-falla></app-nueva-falla>
