@@ -15,7 +15,7 @@ import { AreaService } from '../../services/area.service';
 })
 export class NuevaAreaComponent implements OnInit {
 
-  //* DECLARACION DE VARIABLES 
+  //* DECLARACION DE VARIABLES
   public tipoArea: TipoArea[] = [];
   public usuario: Usuario[] = [];
   public area: any;
@@ -35,6 +35,8 @@ export class NuevaAreaComponent implements OnInit {
     this.activatedRoute.params.subscribe(({ id }) => this.cargarAreas(id));
     this.loadUsuarios();
     this.loadTipoAreas();
+
+    //* VALIDACION DE FORMULARIO
     this.form = this.fb.group({
       UsuarioID: [Validators.required],
       TipoAreaID: ['', Validators.required],

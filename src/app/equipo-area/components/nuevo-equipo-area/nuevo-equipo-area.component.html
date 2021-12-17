@@ -19,17 +19,13 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="form-group p-2">
-                        <label class="form-label">Nombre del area</label>
-                        <input type="text" class="form-control" formControlName="NombreArea">
+                        <label class="form-label">Nombre del equipo</label>
+                        <input type="text" class="form-control" formControlName="Equipo">
                       </div>
 
                       <div class="form-group p-2">
-                        <label class="form-label">Tipo de Area</label>
-                        <select class="form-select" aria-label="Default select example" formControlName="TipoAreaID">
-                          <option value="">
-
-                          </option>
-                        </select>
+                        <label class="form-label">Codigo</label>
+                        <input type="text" class="form-control" formControlName="Codigo">
                       </div>
 
                     </div>
@@ -37,12 +33,14 @@
                 </div>
                 <div class="col-md-6">
                   <div class="card">
+                    <img src="../../../../assets/img/Area.svg" class="img-fluid p-2 shadow-lg" alt="..."
+                      style="width: 500px; height: 100px;">
                     <div class="card-body">
                       <div class="form-group">
-                        <label class="form-label">Encargado</label>
-                        <select class="form-select" aria-label="Default select example" formControlName="UsuarioID">
-                          <option value="">
-
+                        <label class="form-label">Area</label>
+                        <select class="form-select" aria-label="Default select example" formControlName="AreaID">
+                          <option *ngFor="let areas of area" value="{{areas.AreaID}}">
+                            {{areas.NombreArea}}
                           </option>
                         </select>
                       </div>
