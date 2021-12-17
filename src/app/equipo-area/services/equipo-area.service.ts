@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { cargarEquipoArea } from 'src/app/shared/Interface/cargar-equipo-area.interfaces';
 import { environment } from 'src/environments/environment';
@@ -13,24 +13,43 @@ const base_url = environment.base_url;
 })
 export class EquipoAreaService {
 
+  //* EVENST
+  public newEvent: EventEmitter<EquipoArea> = new EventEmitter<EquipoArea>();
+
   constructor(private http: HttpClient) { }
 
-  //* CREATE 
+  //*MODAL
+  private _ocultarModal: boolean = true;
+
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+
+  //****  METODOS  */
+  //* CREATE
   createEquipoArea(equipoArea: EquipoArea): Observable<EquipoArea> {
     return this.http.post<EquipoArea>(`${base_url}/equipoarea`, equipoArea);
   }
 
-  //* EDIT 
+  //* EDIT
   editEquipoArea(equipoArea: EquipoArea): Observable<EquipoArea> {
     return this.http.put<EquipoArea>(`${base_url}/equipoarea`, equipoArea)
   }
 
-  //* DELETE 
+  //* DELETE
   deleteEquipoArea(id: number): Observable<EquipoArea> {
     return this.http.delete<EquipoArea>(`${base_url}/equipoarea/${id}`);
   }
 
-  //* LIST PAGING 
+  //* LIST PAGING
   loadingEquipoArea(page: number = 1) {
     const url = `${base_url}/equipoarea?page=${page}`;
     return this.http.get<cargarEquipoArea>(url);

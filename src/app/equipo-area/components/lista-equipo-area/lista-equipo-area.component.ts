@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipoAreaService } from '../../services/equipo-area.service';
 
 @Component({
   selector: 'app-lista-equipo-area',
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaEquipoAreaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private equipoAreaService: EquipoAreaService
+  ) { }
 
   ngOnInit(): void {
   }
 
   abrirModal() {
-
+    this.equipoAreaService.abrirModal();
   }
 
   changePage(valor: number) {

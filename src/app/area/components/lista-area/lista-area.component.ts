@@ -11,7 +11,7 @@ import { AreaService } from '../../services/area.service';
 })
 export class ListaAreaComponent implements OnInit {
 
-  //* DECLARACION DE VARIABLES 
+  //* DECLARACION DE VARIABLES
   public totalArea: number = 0;
   public area: Area[] = [];
   public page: number = 1;
@@ -29,9 +29,6 @@ export class ListaAreaComponent implements OnInit {
     })
   }
 
-
-
-
   abrirModal() {
     this.areaService.abrirModal();
   }
@@ -43,7 +40,7 @@ export class ListaAreaComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
+  //* Paginacion
   changePage(valor: number) {
     this.page += valor;
     if (this.page <= 1) {
