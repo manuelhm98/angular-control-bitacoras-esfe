@@ -18,11 +18,12 @@
             </p>
             <p class="card-text"> </p>
             <div class="text-nowrap text-center">
-              <a class="cursor" style="cursor: pointer;" (click)="abrirModal()" [routerLink]="['/area','nueva-area', ]">
+              <a class="cursor" style="cursor: pointer;" (click)="abrirModal()"
+                [routerLink]="['/equipo-area','nuevo-equipo-area',  equipoAreas.EquipoAreaID]">
                 <i class=" far fa-edit fa-lg text-info"></i>
               </a>
               |
-              <a (click)="deleteEquipoArea()" style="cursor: pointer;">
+              <a (click)="deleteEquipoArea(equipoAreas.Equipo, equipoAreas.EquipoAreaID)" style="cursor: pointer;">
                 <i class="far fa-trash-alt fa-lg text-danger"></i>
               </a>
             </div>

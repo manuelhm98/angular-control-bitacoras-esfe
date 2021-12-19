@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/area/models/area';
 import { AreaService } from 'src/app/area/services/area.service';
 import Swal from 'sweetalert2';
@@ -24,10 +24,12 @@ export class NuevoEquipoAreaComponent implements OnInit {
     public areaService: AreaService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-
+    //* ACTIVATED ROUTE :ID
+    this.activatedRoute.params.subscribe(({ id }) => this.cargarEquipoArea(id));
     //* CARGA DE DATOS
     this.loadAreas();
     //* VALIDACION DE FORMULARIO
@@ -36,6 +38,23 @@ export class NuevoEquipoAreaComponent implements OnInit {
       Equipo: ['', Validators.required],
       Codigo: ['', Validators.required],
       Estado: 1
+    })
+  }
+
+  cargarEquipoArea(id: number) {
+    this.equipoAreaService.byIdEquipoArea(id).subscribe(data => {
+      if (id === 0) {
+        return;
+      }
+
+      this.equipoArea = data;
+
+      this.form.patchValue({
+        AreaID: this.equipoArea.AreaID,
+        Equipo: this.equipoArea.Equipo,
+        Codigo: this.equipoArea.Codigo,
+        Estado: this.equipoArea.Estado,
+      })
     })
   }
 
@@ -58,6 +77,7 @@ export class NuevoEquipoAreaComponent implements OnInit {
         this.form.reset();
         this.equipoAreaService.loadingEquipoArea();
         this.equipoAreaService.cerrarModal();
+        return this.router.navigate(['/equipo-area'])
       })
     } else {
       if (this.form.invalid) {

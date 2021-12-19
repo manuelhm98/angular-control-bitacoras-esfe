@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 import { EquipoArea } from '../../models/equipo-area';
 import { EquipoAreaService } from '../../services/equipo-area.service';
 
@@ -53,7 +54,25 @@ export class ListaEquipoAreaComponent implements OnInit {
     this.loadingEquipoArea();
   }
 
-  deleteEquipoArea() {
-
+  deleteEquipoArea(nombre: string, id: number) {
+    Swal.fire({
+      title: '¿Eliminar?',
+      text: 'Esta a punto de eliminar a ' + nombre,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si eliminarlo'
+    }).then((result) => {
+      if (result.value) {
+        this.equipoAreaService.deleteEquipoArea(id)
+          .subscribe(resp => {
+            this.loadingEquipoArea();
+            Swal.fire(
+              'Eliminado',
+              `${nombre} fue eliminado correctamente`,
+              'success'
+            )
+          })
+      }
+    })
   }
 }
