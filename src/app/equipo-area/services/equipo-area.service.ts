@@ -51,7 +51,7 @@ export class EquipoAreaService {
 
   //* LIST PAGING
   loadingEquipoArea(page: number = 1) {
-    const url = `${base_url}/equipoarea?page=${page}`;
+    const url = `${base_url}/equipoarea/lista?page=${page}`;
     return this.http.get<cargarEquipoArea>(url);
   }
 
