@@ -11,11 +11,11 @@
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-archway"></i></span>
 
-                    <input type="text" class="form-control" aria-label="Username" placeholder="Area"
+                    <input type="text" class="form-control" aria-label="Username" placeholder="Area" disabled
                       formControlName="AreaID" aria-describedby="basic-addon1" [value]="areaNombre">
 
                     <button class="btn btn-outline-success" type="button" id="button-addon2"
-                      (click)="abrirModal()">Seleccionar</button>
+                      (click)="abrirModalArea()">Seleccionar</button>
                   </div>
 
                   <div class="input-group mb-3">
@@ -35,8 +35,9 @@
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-tv"></i></span>
                     <input type="text" class="form-control" placeholder="Monitor" aria-label="Username" disabled
-                      formControlName="MonitorID" aria-describedby="basic-addon1">
-                    <button class="btn btn-outline-success" type="button" id="button-addon2">Seleccionar</button>
+                      formControlName="MonitorID" aria-describedby="basic-addon1" [value]="monitorCodigo">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalMonitor()">Seleccionar</button>
                   </div>
                 </div>
               </div>

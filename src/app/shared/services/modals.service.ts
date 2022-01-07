@@ -5,12 +5,14 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 })
 export class ModalsService {
 
-  @Output() open: EventEmitter<any> = new EventEmitter();
+  @Output() openArea: EventEmitter<any> = new EventEmitter();
+  @Output() openMonitor: EventEmitter<any> = new EventEmitter();
 
   areaId: number;
   area: string;
 
   constructor() { }
+
   //* MODALS AREA
   private _ocultarModalArea: boolean = true;
 
@@ -23,6 +25,20 @@ export class ModalsService {
 
   cerrarModalArea() {
     this._ocultarModalArea = true;
+  }
+
+  //* MODAL MONITOR
+  private _ocultarModalMonitor: boolean = true;
+
+  get ocultarModalMonitor() {
+    return this._ocultarModalMonitor;
+  }
+  abrirModaMonitor() {
+    this._ocultarModalMonitor = false;
+  }
+
+  cerrarModalMonitor() {
+    this._ocultarModalMonitor = true;
   }
 
 }

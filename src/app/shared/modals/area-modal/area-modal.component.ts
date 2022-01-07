@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
 import { Area } from 'src/app/area/models/area';
 import { AreaService } from 'src/app/area/services/area.service';
 import { ModalsService } from '../../services/modals.service';
@@ -23,6 +24,12 @@ export class AreaModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadinArea();
+    //* RECIBE UN EVENTO PARA RECARGAR EL COMPONENTE
+    this.areaService.newEvent.pipe(
+      delay(100)
+    ).subscribe(resp => {
+      this.loadinArea();
+    })
   }
 
   loadinArea() {
@@ -33,13 +40,10 @@ export class AreaModalComponent implements OnInit {
   }
 
   enviarData(nombre: string, id: number) {
-
-    this.modalService.open.emit({
+    this.modalService.openArea.emit({
       areaId: id,
       nombreArea: nombre
     })
-    /*   this.modalService.areaId = id;
-      this.modalService.area = nombre; */
     this.modalService.cerrarModalArea();
   }
 
