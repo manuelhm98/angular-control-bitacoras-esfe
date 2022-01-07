@@ -7,7 +7,7 @@ const routes: Routes = [{
   path: '',
   children: [
     { path: 'lista-puestos-trabajo', component: ListaPuestosTrabajoComponent, data: { titulo: 'Puestos de Trabajo' } },
-    { path: 'nuevo-puesto-trabajo', component: NuevoPuestosTrabajoComponent, data: { titulo: 'Registar Puestos de Trabajo' } },
+    { path: 'nuevo-puesto-trabajo/:id', component: NuevoPuestosTrabajoComponent, data: { titulo: 'Registar Puestos de Trabajo' } },
     { path: '**', redirectTo: 'lista-puestos-trabajo' }
   ]
 }];

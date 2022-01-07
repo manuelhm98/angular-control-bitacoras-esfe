@@ -5,10 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
 
+
   puestosTrabajo: any[] = [
     {
-      titulo: 'Mantenimiento',
-      icon: 'fas fa-desktop',
+      titulo: 'Inventario',
+      icon: 'fas fa-dolly-flatbed',
       submenu: [
         { titulo: 'Muebles', url: '/mueble' },
         { titulo: 'UPS', url: '/ups' },

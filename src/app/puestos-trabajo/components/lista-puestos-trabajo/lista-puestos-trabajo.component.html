@@ -1,5 +1,49 @@
 <div class="row">
   <div class="col-md-12">
-    <router-outlet></router-outlet>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <a routerLink="../nuevo-puesto-trabajo/0" class="btn btn-primary rounded-pill shadow-lg"><i
+          class="fas fa-plus"></i>
+        Agregar
+      </a>
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
+      <div class="col">
+        <div class="card shadow-lg  mb-2">
+          <img src="../../../../assets/img/undraw_programming_re_kg9v.svg" class="img-fluid p-2 shadow-lg" alt="..."
+            style="width: 500px; height: 100px;">
+          <div class="card-body">
+            <h6 class="card-title">Area: </h6>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">Teclado</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+              <label class="form-check-label" for="inlineCheckbox2">Mouse</label>
+            </div>
+            <p class="card-text"> </p>
+            <div class="text-nowrap text-center">
+              <a class="cursor" style="cursor: pointer;" (click)="abrirModal()" [routerLink]="['/area','nueva-area',]">
+                <i class=" far fa-edit fa-lg text-info"></i>
+              </a>
+              |
+              <a (click)="deleteArea()" style="cursor: pointer;">
+                <i class="far fa-trash-alt fa-lg text-danger"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+      <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+      <label class="btn btn-outline-primary" for="btncheck1">
+        < Anterior </label>
+          <br>
+          <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
+    </div>
   </div>
 </div>

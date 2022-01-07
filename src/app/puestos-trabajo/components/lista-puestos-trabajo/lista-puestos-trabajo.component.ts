@@ -12,4 +12,15 @@ export class ListaPuestosTrabajoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  changePage(valor: number) {
+
+  }
+
+  abrirModal() {
+
+  }
+
+  deleteArea() {
+
+  }
 }

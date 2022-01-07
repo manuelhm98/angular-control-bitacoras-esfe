@@ -34,7 +34,7 @@ export class NuevoEquipoAreaComponent implements OnInit {
     this.loadAreas();
     //* VALIDACION DE FORMULARIO
     this.form = this.fb.group({
-      AreaID: ['...', Validators.required],
+      AreaID: ['', Validators.required],
       Equipo: ['', Validators.required],
       Codigo: ['', Validators.required],
       Estado: 1
@@ -114,6 +114,7 @@ export class NuevoEquipoAreaComponent implements OnInit {
   cerrarModal() {
     this.equipoAreaService.cerrarModal();
     this.form.reset();
+    return this.router.navigate(['/equipo-area'])
   }
 
   loadAreas() {
