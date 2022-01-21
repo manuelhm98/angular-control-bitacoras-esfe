@@ -7,6 +7,9 @@ export class ModalsService {
 
   @Output() openArea: EventEmitter<any> = new EventEmitter();
   @Output() openMonitor: EventEmitter<any> = new EventEmitter();
+  @Output() openMueble: EventEmitter<any> = new EventEmitter();
+  @Output() openCpu: EventEmitter<any> = new EventEmitter();
+  @Output() openUps: EventEmitter<any> = new EventEmitter();
 
   areaId: number;
   area: string;
@@ -44,7 +47,7 @@ export class ModalsService {
   }
 
   //* MODAL CPU
-  public _ocultarModalCpu = false;
+  public _ocultarModalCpu = true;
 
   get ocultarModalCpu() {
     return this._ocultarModalCpu;
@@ -60,8 +63,33 @@ export class ModalsService {
 
 
   //* MODAL MUEBLE
+  public _ocultarModalMueble = true;
 
 
+  get ocultarModalMueble() {
+    return this._ocultarModalMueble;
+  }
+
+  abrirModalMueble() {
+    this._ocultarModalMueble = false;
+  }
+
+  cerrarModalMueble() {
+    this._ocultarModalMueble = true;
+  }
   //* MODAL UPS
 
+  public _ocultarModalUps = true;
+
+  get ocultarModalUps() {
+    return this._ocultarModalUps;
+  }
+
+  abrirModalUps() {
+    this._ocultarModalUps = false;
+  }
+
+  cerrarModalUps() {
+    this._ocultarModalUps = true;
+  }
 }

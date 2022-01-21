@@ -17,6 +17,16 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
   public idMonitor: number;
   public monitorCodigo: string;
 
+  public idCpu: number;
+  public codigoCpu: string;
+
+  public idMueble: number;
+  public codigoMueble: string;
+
+  public idUps: number;
+  public codigoUps: string;
+
+
 
   form: FormGroup;
   constructor(
@@ -30,6 +40,9 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
 
     this.dataMonitor();
     this.dataArea();
+    this.dataCpu();
+    this.dataMueble();
+    this.dataUps();
 
     this.form = this.fb.group({
       AreaID: ['', Validators.required,],
@@ -63,6 +76,33 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
     })
   }
 
+  dataCpu() {
+    this.modalService.openCpu.subscribe(data => {
+      this.idCpu = data.cpuId,
+        this.codigoCpu = data.nombreCpu;
+      this.form.patchValue({ CpuID: this.idCpu });
+      console.log(data)
+    })
+  }
+
+  dataMueble() {
+    this.modalService.openMueble.subscribe(data => {
+      this.idMueble = data.muebleId,
+        this.codigoMueble = data.nombreMueble;
+      this.form.patchValue({ MuebleID: this.idMueble });
+      console.log(data)
+    })
+  }
+
+  dataUps() {
+    this.modalService.openUps.subscribe(data => {
+      this.idUps = data.upsId,
+        this.codigoUps = data.nombreUps;
+      this.form.patchValue({ UpsID: this.idUps });
+      console.log(data)
+    })
+  }
+
   createPuestos() {
 
   }
@@ -75,4 +115,15 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
     this.modalService.abrirModaMonitor();
   }
 
+  abrirModalCpu() {
+    this.modalService.abriModalCpu()
+  }
+
+  abrirModalMueble() {
+    this.modalService.abrirModalMueble()
+  }
+
+  abrirModalUps() {
+    this.modalService.abrirModalUps()
+  }
 }
