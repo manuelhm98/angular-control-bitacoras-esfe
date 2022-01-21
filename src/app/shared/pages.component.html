@@ -13,5 +13,7 @@
     <app-footer></app-footer>
   </div>
 </div>
-<app-area-modal></app-area-modal>
-<app-monitor-modal></app-monitor-modal>
+
+<app-modals *ngIf="!modalService._ocultarModalArea"></app-modals>
+<app-monitor-modal *ngIf="!modalService._ocultarModalMonitor">
+</app-monitor-modal>

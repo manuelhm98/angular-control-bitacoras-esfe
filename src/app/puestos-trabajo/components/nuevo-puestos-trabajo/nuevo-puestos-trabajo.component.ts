@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { delay } from 'rxjs/operators';
 import { ModalsService } from 'src/app/shared/services/modals.service';
 
 @Component({
@@ -27,8 +28,8 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataArea();
     this.dataMonitor();
+    this.dataArea();
 
     this.form = this.fb.group({
       AreaID: ['', Validators.required,],
@@ -42,9 +43,11 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
     })
   }
 
-  dataArea() {
-    this.modalService.openArea.subscribe(data => {
 
+  dataArea() {
+    this.modalService.openArea.pipe(
+      delay(100)
+    ).subscribe(data => {
       this.areaNombre = data.nombreArea;
       this.idArea = data.areaId;
       this.form.patchValue({ AreaID: this.idArea });
@@ -56,6 +59,7 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
       this.idMonitor = data.monitorId,
         this.monitorCodigo = data.monitor;
       this.form.patchValue({ MonitorID: this.idMonitor });
+      console.log(data)
     })
   }
 
@@ -70,4 +74,5 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
   abrirModalMonitor() {
     this.modalService.abrirModaMonitor();
   }
+
 }

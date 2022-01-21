@@ -14,12 +14,14 @@ import { MonitorModalComponent } from './modals/monitor-modal/monitor-modal.comp
 import { UpsModalComponent } from './modals/ups-modal/ups-modal.component';
 import { CpuModalComponent } from './modals/cpu-modal/cpu-modal.component';
 import { MuebleModalComponent } from './modals/mueble-modal/mueble-modal.component';
+import { SharedRoutingModule } from './shared-routing.module';
+import { ModalsComponent } from './modals/modals.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, SidebarComponent, FooterComponent, BreadcrumbComponent, DashboardComponent, PagesComponent, NotpageComponent, AreaModalComponent, MonitorModalComponent, UpsModalComponent, CpuModalComponent, MuebleModalComponent],
-  imports: [CommonModule, RouterModule],
-  exports: [FooterComponent, NavbarComponent, SidebarComponent, BreadcrumbComponent],
+  declarations: [NavbarComponent, SidebarComponent, FooterComponent, BreadcrumbComponent, DashboardComponent, PagesComponent, NotpageComponent, AreaModalComponent, MonitorModalComponent, UpsModalComponent, CpuModalComponent, MuebleModalComponent, ModalsComponent],
+  imports: [CommonModule, RouterModule, SharedRoutingModule],
+  exports: [FooterComponent, NavbarComponent, SidebarComponent, BreadcrumbComponent, MonitorModalComponent],
 })
 export class SharedModule { }

@@ -14,11 +14,12 @@ export class ModalsService {
   constructor() { }
 
   //* MODALS AREA
-  private _ocultarModalArea: boolean = true;
+  public _ocultarModalArea: boolean = true;
 
   get ocultarModalArea() {
     return this._ocultarModalArea;
   }
+
   abrirModaArea() {
     this._ocultarModalArea = false;
   }
@@ -28,11 +29,12 @@ export class ModalsService {
   }
 
   //* MODAL MONITOR
-  private _ocultarModalMonitor: boolean = true;
+  public _ocultarModalMonitor: boolean = true;
 
   get ocultarModalMonitor() {
     return this._ocultarModalMonitor;
   }
+
   abrirModaMonitor() {
     this._ocultarModalMonitor = false;
   }
@@ -40,5 +42,26 @@ export class ModalsService {
   cerrarModalMonitor() {
     this._ocultarModalMonitor = true;
   }
+
+  //* MODAL CPU
+  public _ocultarModalCpu = false;
+
+  get ocultarModalCpu() {
+    return this._ocultarModalCpu;
+  }
+
+  abriModalCpu() {
+    this._ocultarModalCpu = false;
+  }
+
+  cerrarModalCpu() {
+    this._ocultarModalCpu = true;
+  }
+
+
+  //* MODAL MUEBLE
+
+
+  //* MODAL UPS
 
 }

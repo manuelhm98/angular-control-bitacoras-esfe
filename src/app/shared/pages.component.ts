@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalsService } from './services/modals.service';
 
 /********INILIZACION DE SCRIPT DE FORMA GLOBAL*********/
 declare function toggle();
@@ -12,7 +13,9 @@ declare function toggle();
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public modalService: ModalsService,
+  ) { }
 
   ngOnInit(): void {
 

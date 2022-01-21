@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { Area } from 'src/app/area/models/area';
 import { AreaService } from 'src/app/area/services/area.service';
@@ -19,7 +20,8 @@ export class AreaModalComponent implements OnInit {
 
   constructor(
     private areaService: AreaService,
-    public modalService: ModalsService
+    public modalService: ModalsService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -39,14 +41,6 @@ export class AreaModalComponent implements OnInit {
     })
   }
 
-  enviarData(nombre: string, id: number) {
-    this.modalService.openArea.emit({
-      areaId: id,
-      nombreArea: nombre
-    })
-    this.modalService.cerrarModalArea();
-  }
-
   //* Paginacion
   changePage(valor: number) {
     this.page += valor;
@@ -61,4 +55,14 @@ export class AreaModalComponent implements OnInit {
   cerrarModal() {
     this.modalService.cerrarModalArea();
   }
+
+  enviarData(nombre: string, id: number) {
+    this.modalService.openArea.emit({
+      areaId: id,
+      nombreArea: nombre
+    })
+    this.modalService.cerrarModalArea();
+
+  }
+
 }
