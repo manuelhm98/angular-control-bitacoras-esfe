@@ -1,7 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { ModalsService } from 'src/app/shared/services/modals.service';
+import Swal from 'sweetalert2';
+import { PuestosTrabajoService } from '../../services/puestos-trabajo.service';
 
 @Component({
   selector: 'app-nuevo-puestos-trabajo',
@@ -26,17 +29,19 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
   public idUps: number;
   public codigoUps: string;
 
-
-
+  public puestosTrabajo: any;
   form: FormGroup;
+
   constructor(
     public modalService: ModalsService,
     private fb: FormBuilder,
-  ) {
-
-  }
+    private activatedRoute: ActivatedRoute,
+    public puestosTrabajoService: PuestosTrabajoService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
 
     this.dataMonitor();
     this.dataArea();
@@ -50,10 +55,32 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
       UpsID: ['', Validators.required],
       CpuID: ['', Validators.required],
       MuebleID: ['', Validators.required],
-      Teclado: ['', Validators.required],
-      Mouse: ['', Validators.required],
+      Teclado: [false, Validators.required],
+      Mouse: [false, Validators.required],
       Estado: 1
     })
+  }
+
+
+  createPuestos() {
+    if (this.form.value) {
+      this.puestosTrabajoService.createPuestosTrabajo(this.form.value).subscribe(resp => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Ok...',
+          text: 'Registro exitoso !!!',
+          showConfirmButton: false,
+          timer: 3000
+        })
+        this.puestosTrabajoService.newEvent.emit(resp);
+        this.puestosTrabajoService.loadPuestosTrabajo();
+        this.form.reset();
+        return this.router.navigate(['/puestos-trabajo'])
+      })
+    }
+    else {
+      Swal.fire('Error', 'Servidor no disponible', 'error',)
+    }
   }
 
 
@@ -103,9 +130,6 @@ export class NuevoPuestosTrabajoComponent implements OnInit {
     })
   }
 
-  createPuestos() {
-
-  }
 
   abrirModalArea() {
     this.modalService.abrirModaArea();

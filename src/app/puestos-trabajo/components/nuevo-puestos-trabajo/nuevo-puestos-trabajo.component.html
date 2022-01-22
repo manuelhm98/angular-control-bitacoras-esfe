@@ -3,7 +3,7 @@
     <div class="card shadow-lg " style="background-color: #f9f5ff;">
       <div class="card-body">
 
-        <form class="form-horizontal" [formGroup]="form" (click)="createPuestos()">
+        <form class="form-horizontal" [formGroup]="form">
           <div class="row">
             <div class="col-md-6">
               <div class="card">
@@ -74,7 +74,7 @@
               </div>
               <br>
               <div class="d-grid gap-2">
-                <button [disabled]="!form.valid" class="btn btn-success" type="submit">
+                <button (click)="createPuestos()" [disabled]="!form.valid" class="btn btn-success" type="submit">
                   Agregar
                 </button>
               </div>
