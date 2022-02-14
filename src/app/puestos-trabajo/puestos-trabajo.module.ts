@@ -7,11 +7,12 @@ import { ListaPuestosTrabajoComponent } from './components/lista-puestos-trabajo
 import { NuevoPuestosTrabajoComponent } from './components/nuevo-puestos-trabajo/nuevo-puestos-trabajo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditarPuestosTrabajoComponent } from './components/editar-puestos-trabajo/editar-puestos-trabajo.component';
 
 
 
 @NgModule({
-  declarations: [PuestosTrabajoComponent, ListaPuestosTrabajoComponent, NuevoPuestosTrabajoComponent],
+  declarations: [PuestosTrabajoComponent, ListaPuestosTrabajoComponent, NuevoPuestosTrabajoComponent, EditarPuestosTrabajoComponent],
   imports: [
     CommonModule,
     PuestosTrabajoRoutingModule,
