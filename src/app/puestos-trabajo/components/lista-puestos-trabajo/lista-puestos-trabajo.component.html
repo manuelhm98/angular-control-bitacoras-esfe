@@ -8,19 +8,24 @@
     </div>
     <br>
     <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
-      <div class="col">
+      <div class="col" *ngFor="let puestosTrabajos of puestosTrabajo">
         <div class="card shadow-lg  mb-2">
           <img src="../../../../assets/img/undraw_programming_re_kg9v.svg" class="img-fluid p-2 shadow-lg" alt="..."
             style="width: 500px; height: 100px;">
           <div class="card-body">
-            <h6 class="card-title">Area: </h6>
+            <h6 class="card-title">Area: {{puestosTrabajos.Area.NombreArea}}</h6>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-              <label class="form-check-label" for="inlineCheckbox1">Teclado</label>
+              <label *ngIf="puestosTrabajos.Teclado" class="form-check-label" for="inlineCheckbox1">Teclado <i
+                  class="fas fa-check-circle text-success"></i></label>
+              <label *ngIf="!puestosTrabajos.Teclado" class="form-check-label" for="inlineCheckbox1">Teclado <i
+                  class="fas fa-times text-warning"></i>
+              </label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-              <label class="form-check-label" for="inlineCheckbox2">Mouse</label>
+              <label *ngIf="puestosTrabajos.Mouse" class="form-check-label" for="inlineCheckbox2">Mouse <i
+                  class="fas fa-check-circle text-success"></i></label>
+              <label *ngIf="!puestosTrabajos.Mouse" class="form-check-label" for="inlineCheckbox2">Mouse <i
+                  class="fas fa-times text-warning"></i></label>
             </div>
             <p class="card-text"> </p>
             <div class="text-nowrap text-center">

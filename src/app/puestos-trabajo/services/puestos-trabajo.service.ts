@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
+import { cargarPuestosTrabajo } from 'src/app/shared/Interface/cargar-puestos-trabajo.interfaces';
 import { environment } from 'src/environments/environment';
 import { PuestosTrabajo } from '../models/puestos-trabajo';
 
@@ -33,8 +34,8 @@ export class PuestosTrabajoService {
 
   //* LIST PAGING
   loadPuestosTrabajo(page: number = 1) {
-    const url = `${base_url}/puestostrabajo/lista?page?${page}`;
-    return this.http.get(url);
+    const url = `${base_url}/puestostrabajo/lista?page=${page}`;
+    return this.http.get<cargarPuestosTrabajo>(url);
   }
 
   //* LISTA PUESTOS TRABAJO
