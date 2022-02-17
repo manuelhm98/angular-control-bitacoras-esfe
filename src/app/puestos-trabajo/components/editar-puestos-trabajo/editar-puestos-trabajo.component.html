@@ -1,0 +1,93 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card shadow-lg " style="background-color: #f9f5ff;">
+      <div class="card-body">
+
+        <form class="form-horizontal" [formGroup]="form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-archway"></i></span>
+
+                    <input type="text" class="form-control" aria-label="Username" placeholder="Area" disabled
+                      formControlName="AreaID" aria-describedby="basic-addon1" [value]="areaNombre">
+
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalArea()">Seleccionar</button>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fab fa-ups"></i></span>
+                    <input type="text" class="form-control" placeholder="UPS" aria-label="Username" disabled
+                      formControlName="UpsID" aria-describedby="basic-addon1" [value]="codigoUps">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalUps()">Seleccionar</button>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-microchip"></i></span>
+                    <input type="text" class="form-control" placeholder="CPU" aria-label="Username" disabled
+                      formControlName="CpuID" aria-describedby="basic-addon1" [value]="codigoCpu">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalCpu()">Seleccionar</button>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-tv"></i></span>
+                    <input type="text" class="form-control" placeholder="Monitor" aria-label="Username" disabled
+                      formControlName="MonitorID" aria-describedby="basic-addon1" [value]="monitorCodigo">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalMonitor()">Seleccionar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-chair"></i></span>
+                    <input type="text" class="form-control" placeholder="Mueble" aria-label="Username" disabled
+                      formControlName="MuebleID" aria-describedby="basic-addon1" [value]="codigoMueble">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"
+                      (click)="abrirModalMueble()">Seleccionar</button>
+                  </div>
+                  <div class="card m-4">
+                    <div class="card-body mx-auto">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"
+                          formControlName="Mouse">
+                        <label class="form-check-label" for="inlineCheckbox1"><i class="fas fa-mouse"></i> Mouse</label>
+                      </div>
+                      <div class="form-check form-check-inline ">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"
+                          formControlName="Teclado">
+                        <label class="form-check-label" for="inlineCheckbox2"><i
+                            class="fas fa-keyboard"></i>Teclado</label>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="d-grid gap-2">
+                <button (click)="editarPuestos()" [disabled]="!form.valid" class="btn btn-success" type="submit">
+                  Agregar
+                </button>
+              </div>
+              <br>
+              <div *ngIf="!form.valid && (form.dirty || form.touched)" class="alert alert-danger" role="alert">
+                Nose permiten campos vacios !!!
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<a class="small" routerLink="/puestos-trabajo/lista-puestos-trabajo">Ver lista?</a>
