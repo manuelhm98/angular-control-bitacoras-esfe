@@ -6,6 +6,10 @@
         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
         Dashboard
       </a>
+      <a class="nav-link" routerLink="/bitacora">
+        <div class="sb-nav-link-icon"><i class="far fa-address-card"></i></div>
+        Bitacora
+      </a>
       <a class="nav-link" routerLink="/puestos-trabajo">
         <div class="sb-nav-link-icon"><i class="fas fa-layer-group"></i></div>
         Puestos De Trabajo
@@ -40,9 +44,8 @@
           </nav>
         </div>
       </div>
-
       <div *ngFor="let item of menuBitacoras">
-        <div class="sb-sidenav-menu-heading">Reportes</div>
+
         <a class="nav-link collapsed" [routerLink]="item.url" data-bs-toggle="collapse"
           data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
           <div class="sb-nav-link-icon"><i class="{{item.icon}}"></i></div>
@@ -55,9 +58,11 @@
 
           </nav>
         </div>
+
       </div>
+
+
       <div *ngFor="let item of menuUsuarios">
-        <div class="sb-sidenav-menu-heading">Usuarios</div>
         <a class="nav-link collapsed" [routerLink]="item.url" data-bs-toggle="collapse"
           data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
           <div class="sb-nav-link-icon"><i class="{{item.icon}}"></i></div>

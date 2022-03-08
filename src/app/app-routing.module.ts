@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { SessionGuard } from './shared/core/guards/session.guard';
 import { PagesComponent } from './shared/pages.component';
 import { DashboardComponent } from './shared/pages/dashboard/dashboard.component';
 import { NotpageComponent } from './shared/pages/notpage/notpage.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
+    canActivate: [SessionGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -79,7 +81,8 @@ const routes: Routes = [
 
   {
     path: '**', component: NotpageComponent
-  }
+  },
+
 ];
 
 @NgModule({

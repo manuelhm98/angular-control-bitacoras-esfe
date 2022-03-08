@@ -39,7 +39,8 @@ export class SidebarService {
       icon: 'fas fa-file-alt',
       submenu: [
         { titulo: 'Fallas', url: '/falla' },
-        { titulo: 'Tipo de fallas', url: '/tipo-falla' }
+        { titulo: 'Tipo de fallas', url: '/tipo-falla' },
+
       ]
     }
   ]
