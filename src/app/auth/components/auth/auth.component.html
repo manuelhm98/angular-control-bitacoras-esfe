@@ -31,8 +31,9 @@
                             Nose permiten campos vacios !!!
                           </div>
                           <div style="color: red;" *ngIf="errorSession">
-                            Correo o contraseña invalidos
+                            <h6>Correo o contraseña invalidos</h6>
                           </div>
+
                           <div class="d-grid gap-2">
                             <button class="btn btn-primary" [disabled]="!form.valid" type="submit">Log in</button>
                           </div>
