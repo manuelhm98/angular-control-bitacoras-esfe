@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { RolesGuard } from './shared/core/guards/roles.guard';
 import { SessionGuard } from './shared/core/guards/session.guard';
 import { PagesComponent } from './shared/pages.component';
 import { DashboardComponent } from './shared/pages/dashboard/dashboard.component';
@@ -16,23 +17,43 @@ const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       {
         path: 'area',
-        loadChildren: () => import('./area/area.module').then((m) => m.AreaModule)
+        loadChildren: () => import('./area/area.module').then((m) => m.AreaModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'bitacora',
-        loadChildren: () => import('./bitacora/bitacora.module').then((m) => m.BitacoraModule)
+        loadChildren: () => import('./bitacora/bitacora.module').then((m) => m.BitacoraModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'cpu',
-        loadChildren: () => import('./cpu/cpu.module').then((m) => m.CpuModule)
+        loadChildren: () => import('./cpu/cpu.module').then((m) => m.CpuModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'equipo-area',
-        loadChildren: () => import('./equipo-area/equipo-area.module').then((m) => m.EquipoAreaModule)
+        loadChildren: () => import('./equipo-area/equipo-area.module').then((m) => m.EquipoAreaModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'falla',
-        loadChildren: () => import('./falla/falla.module').then((m) => m.FallaModule)
+        loadChildren: () => import('./falla/falla.module').then((m) => m.FallaModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'monitor',
@@ -40,36 +61,68 @@ const routes: Routes = [
       },
       {
         path: 'mueble',
-        loadChildren: () => import('./mueble/mueble.module').then((m) => m.MuebleModule)
+        loadChildren: () => import('./mueble/mueble.module').then((m) => m.MuebleModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'procesador',
-        loadChildren: () => import('./procesador/procesador.module').then((m) => m.ProcesadorModule)
+        loadChildren: () => import('./procesador/procesador.module').then((m) => m.ProcesadorModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'puestos-trabajo',
-        loadChildren: () => import('./puestos-trabajo/puestos-trabajo.module').then((m) => m.PuestosTrabajoModule)
+        loadChildren: () => import('./puestos-trabajo/puestos-trabajo.module').then((m) => m.PuestosTrabajoModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'roles',
-        loadChildren: () => import('./role/role.module').then((m) => m.RoleModule)
+        loadChildren: () => import('./role/role.module').then((m) => m.RoleModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'tipo-area',
-        loadChildren: () => import('./tipo-area/tipo-area.module').then((m) => m.TipoAreaModule)
+        loadChildren: () => import('./tipo-area/tipo-area.module').then((m) => m.TipoAreaModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'tipo-falla',
-        loadChildren: () => import('./tipo-falla/tipo-falla.module').then((m) => m.TipoFallaModule)
+        loadChildren: () => import('./tipo-falla/tipo-falla.module').then((m) => m.TipoFallaModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'ups',
-        loadChildren: () => import('./ups/ups.module').then((m) => m.UpsModule)
+        loadChildren: () => import('./ups/ups.module').then((m) => m.UpsModule),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'usuarios',
         loadChildren: () => import('./usuarios/usuarios.module').then((m) => m.UsuariosModule
-        )
+        ),
+        data: {
+          role: 'Admin'
+        },
+        canActivate: [RolesGuard]
       },
       {
         path: 'modals',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -45,7 +46,14 @@ export class AuthComponent implements OnInit {
         console.log('Email o password invalidos')
       }
     }, err => {
-      console.log('Error de servidor' + err)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Servidor no disponible',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      console.log(err)
     })
   }
 }
