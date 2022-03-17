@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import jwt_decode from 'jwt-decode';
 })
 export class RolesGuard implements CanActivate {
 
+  public rol: any[];
 
   constructor(
     private cookie: CookieService,
@@ -23,7 +24,7 @@ export class RolesGuard implements CanActivate {
     return this.checkRole(route);
   }
 
-  //TODO FUNCIONAR PARA OBTENER ROL DE USUARIO LOGUEADO
+  //TODO FUNCIONAR PARA OBTENER ROL DE USUARIO LOGUA
   checkRole(route: ActivatedRouteSnapshot): boolean {
     try {
 
@@ -31,9 +32,11 @@ export class RolesGuard implements CanActivate {
       const tokenInfo = this.getDecodedAccessToken(token);
       const role = tokenInfo.role;
 
-      const scope = [] = role;
-      console.log(route.data.role)
-      if (scope.includes(route.data.role)) {
+      const scope = role;
+
+
+
+      if (route.data.role.includes(scope)) {
         console.log('Authorize');
         return true
       } else {
@@ -41,7 +44,6 @@ export class RolesGuard implements CanActivate {
         console.log('No Authorize');
         return false
       }
-
     } catch (error) {
       return false
     }

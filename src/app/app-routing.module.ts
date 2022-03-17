@@ -19,7 +19,7 @@ const routes: Routes = [
         path: 'area',
         loadChildren: () => import('./area/area.module').then((m) => m.AreaModule),
         data: {
-          role: 'Admin'
+          role: ['Admin', 'Docente']
         },
         canActivate: [RolesGuard]
       },
