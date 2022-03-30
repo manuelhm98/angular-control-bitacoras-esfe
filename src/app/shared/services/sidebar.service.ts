@@ -6,6 +6,23 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 
 
+  //*
+  public _ocultarSidebar: boolean = false;
+
+  get ocultarSidebar() {
+    return this._ocultarSidebar;
+  }
+
+  abrirSidebar() {
+    this._ocultarSidebar = false;
+  }
+
+  cerrarSidebar() {
+    this._ocultarSidebar = true;
+  }
+
+  //TODO SIDEBAR
+
   puestosTrabajo: any[] = [
     {
       titulo: 'Inventario',
@@ -47,7 +64,7 @@ export class SidebarService {
 
   usuario: any[] = [
     {
-      titulo: 'Configuracion',
+      titulo: 'Mantenimiento',
       icon: 'fas fa-cogs',
       submenu: [
         { titulo: 'Usuarios', url: '/usuarios' },

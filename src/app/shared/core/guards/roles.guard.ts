@@ -40,6 +40,7 @@ export class RolesGuard implements CanActivate {
         console.log('Authorize');
         return true
       } else {
+
         this.router.navigate(['/', '**'])
         console.log('No Authorize');
         return false

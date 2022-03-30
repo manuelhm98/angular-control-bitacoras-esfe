@@ -13,8 +13,14 @@ const routes: Routes = [
     component: PagesComponent,
     canActivate: [SessionGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      {
+        path: 'dashboard', component: DashboardComponent, data: {
+          titulo: 'Dashboard',
+          role: ['Admin', 'Supervisor']
+        },
+        canActivate: [RolesGuard]
+      },
+      { path: '', redirectTo: 'bitacora/nueva-bitacora', pathMatch: 'full' },
       {
         path: 'area',
         loadChildren: () => import('./area/area.module').then((m) => m.AreaModule),
@@ -27,9 +33,9 @@ const routes: Routes = [
         path: 'bitacora',
         loadChildren: () => import('./bitacora/bitacora.module').then((m) => m.BitacoraModule),
         data: {
-          role: 'Admin'
-        },
-        canActivate: [RolesGuard]
+
+        }
+
       },
       {
         path: 'cpu',
@@ -43,7 +49,7 @@ const routes: Routes = [
         path: 'equipo-area',
         loadChildren: () => import('./equipo-area/equipo-area.module').then((m) => m.EquipoAreaModule),
         data: {
-          role: 'Admin'
+          role: ['Admin', 'Supervisor']
         },
         canActivate: [RolesGuard]
       },
@@ -51,7 +57,7 @@ const routes: Routes = [
         path: 'falla',
         loadChildren: () => import('./falla/falla.module').then((m) => m.FallaModule),
         data: {
-          role: 'Admin'
+          role: ['Admin', 'Supervisor', 'Docente']
         },
         canActivate: [RolesGuard]
       },
@@ -79,7 +85,7 @@ const routes: Routes = [
         path: 'puestos-trabajo',
         loadChildren: () => import('./puestos-trabajo/puestos-trabajo.module').then((m) => m.PuestosTrabajoModule),
         data: {
-          role: 'Admin'
+          role: ['Admin', 'Supervisor']
         },
         canActivate: [RolesGuard]
       },
