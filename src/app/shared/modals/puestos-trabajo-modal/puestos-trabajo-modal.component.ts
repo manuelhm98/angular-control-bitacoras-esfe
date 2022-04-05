@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'rxjs/operators';
-import { PuestosTrabajo } from '../../models/puestos-trabajo';
-import { PuestosTrabajoService } from '../../services/puestos-trabajo.service';
+import { Router } from '@angular/router';
+import { PuestosTrabajo } from 'src/app/puestos-trabajo/models/puestos-trabajo';
+import { PuestosTrabajoService } from 'src/app/puestos-trabajo/services/puestos-trabajo.service';
+import { ModalsService } from '../../services/modals.service';
 
 @Component({
-  selector: 'app-lista-puestos-trabajo',
-  templateUrl: './lista-puestos-trabajo.component.html',
-  styleUrls: ['./lista-puestos-trabajo.component.css']
+  selector: 'app-puestos-trabajo-modal',
+  templateUrl: './puestos-trabajo-modal.component.html',
 })
-export class ListaPuestosTrabajoComponent implements OnInit {
+export class PuestosTrabajoModalComponent implements OnInit {
 
   //* DECLARACION DE VARIABLES
   public totalPuestosTrabajo: number = 0;
@@ -17,20 +17,15 @@ export class ListaPuestosTrabajoComponent implements OnInit {
   public take: number = 5;
 
   constructor(
-    private puestosTrabajoService: PuestosTrabajoService
+    private puestosTrabajoService: PuestosTrabajoService,
+    public modalService: ModalsService,
+    public router: Router
+
   ) { }
 
   ngOnInit(): void {
     this.loadinPuestos();
-    //* RECIBE UN EVENTO PARA RECARGAR EL COMPONENTE
-    this.puestosTrabajoService.newEvent.pipe(
-      delay(100)
-    ).subscribe(resp => {
-      this.loadinPuestos();
-    })
   }
-
-
 
   loadinPuestos() {
     this.puestosTrabajoService.loadPuestosTrabajo(this.page).subscribe(({ TotalRegistros, PuestosTrabajos }) => {
@@ -50,12 +45,14 @@ export class ListaPuestosTrabajoComponent implements OnInit {
     this.loadinPuestos();
   }
 
-
-  abrirModal() {
-
+  enviarData(id: number) {
+    this.modalService.openPuestos.emit({
+      puestosId: id,
+    })
+    this.modalService.cerrarModalPuestos();
   }
 
-  deleteArea() {
-
+  cerrarModal() {
+    this.modalService.cerrarModalPuestos();
   }
 }

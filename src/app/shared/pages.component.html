@@ -17,6 +17,8 @@
 </div>
 
 
+<app-puestos-trabajo-modal *ngIf="!modalService._ocultarModalPuestos"></app-puestos-trabajo-modal>
+<app-fallas-modal *ngIf="!modalService._ocultarModalFallas"></app-fallas-modal>
 <app-modals *ngIf="!modalService._ocultarModalArea"></app-modals>
 <app-monitor-modal *ngIf="!modalService._ocultarModalMonitor">
 </app-monitor-modal>

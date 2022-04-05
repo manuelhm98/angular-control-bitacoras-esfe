@@ -11,7 +11,7 @@ import { FallaService } from '../../services/falla.service';
 })
 export class ListaFallaComponent implements OnInit {
 
-  //* VARIABLES 
+  //* VARIABLES
   public totalFallas: number = 0;
   public falla: Falla[] = [];
   public page: number = 1;
@@ -31,7 +31,7 @@ export class ListaFallaComponent implements OnInit {
     })
   }
 
-  //* CARGAR MONITORES
+  //* CARGAR FALLAS
   loadingFalla() {
     this.fallaService.loadingFalla(this.page).subscribe(({ TotalRegistros, Fallas }) => {
       this.totalFallas = TotalRegistros;
@@ -39,7 +39,7 @@ export class ListaFallaComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
+  //* Paginacion
   changePage(valor: number) {
     this.page += valor;
     if (this.page <= 1) {

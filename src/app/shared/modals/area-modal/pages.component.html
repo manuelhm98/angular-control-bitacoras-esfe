@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div id="layoutSidenav">
+  <div id="layoutSidenav_nav">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div id="layoutSidenav_content">
+    <main>
+      <div class="container-fluid px-4">
+        <app-breadcrumb class="p-1"></app-breadcrumb>
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+    <app-footer></app-footer>
+  </div>
+</div>
+
+<app-modals *ngIf="!modalService._ocultarModalArea"></app-modals>
+<app-monitor-modal *ngIf="!modalService._ocultarModalMonitor">
+</app-monitor-modal>
+<app-cpu-modal *ngIf="!modalService._ocultarModalCpu"></app-cpu-modal>
+<app-mueble-modal *ngIf="!modalService._ocultarModalMueble"></app-mueble-modal>
+<app-ups-modal *ngIf="!modalService._ocultarModalUps"></app-ups-modal>

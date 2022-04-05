@@ -62,7 +62,6 @@ export class AreaModalComponent implements OnInit {
       nombreArea: nombre
     })
     this.modalService.cerrarModalArea();
-
   }
 
 }

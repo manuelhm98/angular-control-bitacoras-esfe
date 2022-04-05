@@ -16,11 +16,13 @@ import { CpuModalComponent } from './modals/cpu-modal/cpu-modal.component';
 import { MuebleModalComponent } from './modals/mueble-modal/mueble-modal.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { ModalsComponent } from './modals/modals.component';
+import { FallasModalComponent } from './modals/fallas-modal/fallas-modal.component';
+import { PuestosTrabajoModalComponent } from './modals/puestos-trabajo-modal/puestos-trabajo-modal.component';
 
 
 
 @NgModule({
-  declarations: [NavbarComponent, SidebarComponent, FooterComponent, BreadcrumbComponent, DashboardComponent, PagesComponent, NotpageComponent, AreaModalComponent, MonitorModalComponent, UpsModalComponent, CpuModalComponent, MuebleModalComponent, ModalsComponent],
+  declarations: [NavbarComponent, SidebarComponent, FooterComponent, BreadcrumbComponent, DashboardComponent, PagesComponent, NotpageComponent, AreaModalComponent, MonitorModalComponent, UpsModalComponent, CpuModalComponent, MuebleModalComponent, ModalsComponent, FallasModalComponent, PuestosTrabajoModalComponent],
   imports: [CommonModule, RouterModule, SharedRoutingModule],
   exports: [FooterComponent, NavbarComponent, SidebarComponent, BreadcrumbComponent, MonitorModalComponent],
 })

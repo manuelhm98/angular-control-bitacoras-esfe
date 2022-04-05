@@ -10,6 +10,8 @@ export class ModalsService {
   @Output() openMueble: EventEmitter<any> = new EventEmitter();
   @Output() openCpu: EventEmitter<any> = new EventEmitter();
   @Output() openUps: EventEmitter<any> = new EventEmitter();
+  @Output() openPuestos: EventEmitter<any> = new EventEmitter();
+  @Output() openFallas: EventEmitter<any> = new EventEmitter();
 
   areaId: number;
   area: string;
@@ -91,5 +93,36 @@ export class ModalsService {
 
   cerrarModalUps() {
     this._ocultarModalUps = true;
+  }
+
+  //* MODAL PUESTOS
+  public _ocultarModalPuestos = true;
+
+  get ocultarModalPuestos() {
+    return this._ocultarModalPuestos;
+  }
+
+  abrirModalPuestos() {
+    this._ocultarModalPuestos = false;
+  }
+
+  cerrarModalPuestos() {
+    this._ocultarModalPuestos = true;
+  }
+
+  //* MODAL FALLAS
+
+  public _ocultarModalFallas = true;
+
+  get ocultarModalFallas() {
+    return this._ocultarModalFallas;
+  }
+
+  abrirModalFallas() {
+    this._ocultarModalFallas = false;
+  }
+
+  cerrarModalFallas() {
+    this._ocultarModalFallas = true;
   }
 }

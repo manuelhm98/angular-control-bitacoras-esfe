@@ -21,18 +21,12 @@ export class NavbarComponent implements OnInit {
   }
 
   logaout() {
-    this.cookie.deleteAll('token');
+    this.cookie.deleteAll('/');
     return this.router.navigate(['/', 'login'])
   }
 
   abrirSidebar() {
-
-    if (this.sidebarService._ocultarSidebar) {
-      this.sidebarService.abrirSidebar();
-    } else {
-      this.sidebarService.cerrarSidebar();
-    }
-
+    this.sidebarService._ocultarSidebar ? this.sidebarService.abrirSidebar() : this.sidebarService.cerrarSidebar()
   }
 
 

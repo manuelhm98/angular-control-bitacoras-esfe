@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
 
     //* VALIDACION DE FORMULARIO
     this.form = this.fb.group({
-      Email: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
       Pass: ['', Validators.required],
     })
   }
