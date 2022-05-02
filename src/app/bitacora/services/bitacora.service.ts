@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { cargarBitacora } from 'src/app/shared/Interface/cargar-bitacora.interfaces';
 import { environment } from 'src/environments/environment';
@@ -13,33 +13,36 @@ export class BitacoraService {
 
   constructor(private http: HttpClient) { }
 
+  //* EVENTS
+  public newEvent: EventEmitter<Bitacora> = new EventEmitter<Bitacora>();
+
   //* CREATE
   createBitacora(bitacora: Bitacora): Observable<Bitacora> {
     return this.http.post<Bitacora>(`${base_url}/bitacora`, bitacora);
   }
 
-  //* EDIT 
+  //* EDIT
   updateBitacora(bitacora: Bitacora): Observable<Bitacora> {
     return this.http.put<Bitacora>(`${base_url}/bitacora`, bitacora);
   }
 
-  //* DELETE 
+  //* DELETE
   deleteBitacora(id: number): Observable<Bitacora> {
     return this.http.delete<Bitacora>(`${base_url}/bitacora/${id}`)
   }
 
   //* LIST PAGING
   loadingBitacora(page: number = 1) {
-    const url = `${base_url}/bitacora?page=${page}`;
+    const url = `${base_url}/bitacora/lista?page=${page}`;
     return this.http.get<cargarBitacora>(url);
   }
 
-  //* LISTA BITACORAS 
+  //* LISTA BITACORAS
   listBitacora() {
     return this.http.get(`${base_url}/bitacora`)
   }
 
-  //* BY ID 
+  //* BY ID
   byIdBitacora(id: number) {
     return this.http.get(`${base_url}/bitacora/${id}`);
   }
