@@ -6,10 +6,11 @@ import { ListaBitacoraComponent } from './components/lista-bitacora/lista-bitaco
 import { NuevaBitacoraComponent } from './components/nueva-bitacora/nueva-bitacora.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetalleBitacoraComponent } from './components/detalle-bitacora/detalle-bitacora.component';
 
 
 @NgModule({
-  declarations: [ListaBitacoraComponent, NuevaBitacoraComponent],
+  declarations: [ListaBitacoraComponent, NuevaBitacoraComponent, DetalleBitacoraComponent],
   imports: [
     CommonModule,
     BitacoraRoutingModule,

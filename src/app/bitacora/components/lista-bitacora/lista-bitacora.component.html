@@ -1,5 +1,5 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a class="btn btn-primary rounded-pill shadow-lg">
+  <a class="btn btn-primary rounded-pill shadow-lg" routerLink="/bitacora/nueva-bitacora">
     <i class="fas fa-plus"></i>
     Agregar
   </a>
@@ -10,6 +10,7 @@
     <thead class="table-dark">
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Puesto de trabajo</th>
         <th scope="col">Falla</th>
         <th scope="col">Usuario</th>
         <th scope="col">Fecha - Hora</th>
@@ -19,15 +20,25 @@
     <tbody>
       <tr *ngFor="let bitacora of bitacoras">
         <td>{{bitacora.BitacoraID}}</td>
+        <td>{{bitacora.PuestosTrabajoID}}</td>
         <td>{{bitacora.Falla.Descripcion}}</td>
         <td>{{bitacora.Usuario.Nombre}}</td>
         <td>{{ bitacora.FechaHora}}</td>
         <td>
-          <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
+          <a>
+            <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
+          </a>
+
           |
-          <i class="far fa-trash-alt fa-lg text-danger" style="cursor: pointer;"></i>
+          <a>
+            <i class="far fa-trash-alt fa-lg text-danger" style="cursor: pointer;"></i>
+          </a>
+
           |
-          <i class="fas fa-search-plus fa-lg text-success" style="cursor: pointer;"></i>
+          <a (click)="abrirModal()" [routerLink]="['/bitacora','detalle-bitacora', bitacora.BitacoraID]">
+            <i class="fas fa-search-plus fa-lg text-success" style="cursor: pointer;"></i>
+          </a>
+
         </td>
       </tr>
     </tbody>

@@ -13,6 +13,32 @@ export class BitacoraService {
 
   constructor(private http: HttpClient) { }
 
+  /* A private variable that is used to hide or show the modal. */
+  private _ocultarModal: boolean = true;
+
+  /**
+   * It returns the value of the private variable _ocultarModal.
+   * @returns The getter is returning the value of the private property _ocultarModal.
+   */
+  get ocultarModal() {
+    return this._ocultarModal;
+  }
+
+  /**
+   * The function abrirModal() sets the value of the variable _ocultarModal to false
+   */
+  abrirModal() {
+    this._ocultarModal = false;
+  }
+
+  /**
+   * The function cerrarModal() is a function that is called when the user clicks on the button with the
+   * id of "cerrar-modal" in the HTML file
+   */
+  cerrarModal() {
+    this._ocultarModal = true;
+  }
+
   //* EVENTS
   public newEvent: EventEmitter<Bitacora> = new EventEmitter<Bitacora>();
 
