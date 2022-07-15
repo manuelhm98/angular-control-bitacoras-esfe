@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Area } from 'src/app/area/models/area';
 import { AreaService } from 'src/app/area/services/area.service';
@@ -16,13 +16,13 @@ export class NuevoEquipoAreaComponent implements OnInit {
   //*DECLARACION DE VARIABLES
   public area: Area[] = [];
   public equipoArea: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
 
   constructor(
     public equipoAreaService: EquipoAreaService,
     public areaService: AreaService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }

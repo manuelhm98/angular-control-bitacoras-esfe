@@ -1,6 +1,5 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
-import { report } from 'process';
 import { Observable } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { cargarTipoFalla } from 'src/app/shared/Interface/cargar-tipo-falla.interfaces';
@@ -13,11 +12,11 @@ const base_url = environment.base_url;
 })
 export class TipoFallaService {
 
-  //* EVENTS 
+  //* EVENTS
   public newEvent: EventEmitter<TipoFalla> = new EventEmitter<TipoFalla>();
 
   constructor(private http: HttpClient) { }
-  //? MODALS 
+  //? MODALS
   private _ocultarModal: boolean = true;
 
   get ocultarModal() {
@@ -32,34 +31,34 @@ export class TipoFallaService {
     this._ocultarModal = true;
   }
 
-  //TODO METODOS 
-  //* CREATE 
+  //TODO METODOS
+  //* CREATE
   createTipoFalla(tipoFalla: TipoFalla): Observable<TipoFalla> {
     return this.http.post<TipoFalla>(`${base_url}/tipofalla`, tipoFalla);
   }
 
-  //* EDIT 
+  //* EDIT
   updateTipoFalla(tipofalla: TipoFalla): Observable<TipoFalla> {
     return this.http.put<TipoFalla>(`${base_url}/tipofalla`, tipofalla);
   }
 
-  //* DELETE 
+  //* DELETE
   deleteTipoFalla(id: number): Observable<TipoFalla> {
     return this.http.delete<TipoFalla>(`${base_url}/tipofalla/${id}`);
   }
 
-  //* LIST PAGING 
+  //* LIST PAGING
   loadTipoFalla(page: number = 1) {
     const url = `${base_url}/tipofalla/lista?page=${page}`;
     return this.http.get<cargarTipoFalla>(url);
   }
 
-  //* LIST TIPOFALLAS 
+  //* LIST TIPOFALLAS
   listTipoFallas() {
     return this.http.get(`${base_url}/tipofalla`);
   }
 
-  //* BYID 
+  //* BYID
   byIdTipoFalla(id: number) {
     return this.http.get(`${base_url}/tipofalla/${id}`);
   }

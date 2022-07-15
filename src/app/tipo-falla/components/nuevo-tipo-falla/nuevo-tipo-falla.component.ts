@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TipoFallaService } from '../../services/tipo-falla.service';
@@ -13,11 +13,11 @@ export class NuevoTipoFallaComponent implements OnInit {
 
   //* DECLARACION DE VARIABLES 
   public tipoFalla: any;
-  form: FormGroup
+  form: UntypedFormGroup
 
   constructor(
     public tipoFallaService: TipoFallaService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public router: Router
   ) { }

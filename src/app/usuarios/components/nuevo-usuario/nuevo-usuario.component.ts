@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -18,10 +18,10 @@ export class NuevoUsuarioComponent implements OnInit {
   /**AREGLO DE ROLES */
   public roles: Roles[] = [];
   public user: any;
-  public registerUser: FormGroup;
+  public registerUser: UntypedFormGroup;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private roleService: RolesService,
     private usuarioService: UsuariosService,
     private activatedRoute: ActivatedRoute,

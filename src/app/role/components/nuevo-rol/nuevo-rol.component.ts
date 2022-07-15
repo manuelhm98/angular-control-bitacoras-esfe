@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { RolesService } from '../../services/roles.service';
 
 import Swal from 'sweetalert2'
@@ -13,10 +13,10 @@ import { Roles } from '../../models/roles';
 export class NuevoRolComponent implements OnInit {
 
   role: Roles;
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
 
 
-  constructor(private fb: FormBuilder,
+  constructor(private fb: UntypedFormBuilder,
     public roleService: RolesService,
   ) {
   }

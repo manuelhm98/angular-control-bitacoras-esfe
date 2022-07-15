@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Ups } from '../../models/ups';
@@ -12,12 +12,12 @@ import { UpsService } from '../../services/ups.service';
 })
 export class NuevoUpsComponent implements OnInit {
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   ups: any;
 
   constructor(
     public upsService: UpsService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public router: Router
   ) { }

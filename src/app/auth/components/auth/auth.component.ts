@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import Swal from 'sweetalert2';
@@ -13,11 +13,11 @@ import { LoginService } from '../../services/login.service';
 export class AuthComponent implements OnInit {
 
   //*DECLARACION DE VARIABLES
-  form: FormGroup;
+  form: UntypedFormGroup;
   errorSession: boolean;
   constructor(
     private loginService: LoginService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private cookie: CookieService,
     private router: Router
   ) { }

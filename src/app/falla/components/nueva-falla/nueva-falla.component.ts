@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoFalla } from 'src/app/tipo-falla/models/tipo-falla';
 import { TipoFallaService } from 'src/app/tipo-falla/services/tipo-falla.service';
@@ -17,12 +17,12 @@ export class NuevaFallaComponent implements OnInit {
   //* DECLARACION DE VARIABLES 
   public tipoFalla: TipoFalla[] = [];
   public falla: any;
-  form: FormGroup
+  form: UntypedFormGroup
 
   constructor(
     public fallaService: FallaService,
     private tipoFallaService: TipoFallaService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) { }

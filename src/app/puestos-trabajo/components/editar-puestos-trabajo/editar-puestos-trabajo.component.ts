@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { ModalsService } from 'src/app/shared/services/modals.service';
@@ -31,11 +31,11 @@ export class EditarPuestosTrabajoComponent implements OnInit {
 
   public puestosTrabajo: any;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   constructor(
     public modalService: ModalsService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public puestosTrabajoService: PuestosTrabajoService,
     private router: Router

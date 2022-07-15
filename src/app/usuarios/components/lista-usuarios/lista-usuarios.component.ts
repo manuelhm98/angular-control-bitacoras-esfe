@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario';
 import { UsuariosService } from '../../services/usuarios.service';
 import Swal from 'sweetalert2';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-lista-usuarios',
   templateUrl: './lista-usuarios.component.html',
@@ -18,13 +18,13 @@ export class ListaUsuariosComponent implements OnInit {
   public name: string = "";
   public rol: string = "";
   public take: number = 5;
-  form: FormGroup
+  form: UntypedFormGroup
 
 
 
   constructor(
     public usuarioService: UsuariosService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
   ) { }
 
   ngOnInit(): void {

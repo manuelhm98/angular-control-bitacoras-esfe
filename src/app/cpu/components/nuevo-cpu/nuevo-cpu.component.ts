@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Procesador } from 'src/app/procesador/models/procesador';
 import { ProcesadorService } from 'src/app/procesador/services/procesador.service';
@@ -16,12 +16,12 @@ export class NuevoCpuComponent implements OnInit {
   public procesador: Procesador[] = [];
   public filterProc: Procesador[] = [];
   public cpu: any;
-  form: FormGroup
+  form: UntypedFormGroup
 
   constructor(
     public cpuService: CpuService,
     private procesadorService: ProcesadorService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public router: Router
   ) { }

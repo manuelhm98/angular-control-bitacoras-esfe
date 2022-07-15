@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TipoArea } from '../../models/tipo-area';
@@ -14,11 +14,11 @@ export class NuevoTipoAreaComponent implements OnInit {
 
   //* DECLARACION DE VARIABLES 
   public tipoArea: any;
-  form: FormGroup
+  form: UntypedFormGroup
 
   constructor(
     public tipoAreaService: TipoAreaService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public router: Router
   ) { }

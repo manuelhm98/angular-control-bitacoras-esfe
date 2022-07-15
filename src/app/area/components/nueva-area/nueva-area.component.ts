@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoArea } from 'src/app/tipo-area/models/tipo-area';
 import { TipoAreaService } from 'src/app/tipo-area/services/tipo-area.service';
@@ -19,13 +19,13 @@ export class NuevaAreaComponent implements OnInit {
   public tipoArea: TipoArea[] = [];
   public usuario: Usuario[] = [];
   public area: any;
-  form: FormGroup;
+  form: UntypedFormGroup;
 
 
   constructor(
     public areaService: AreaService,
     public tipoAreaService: TipoAreaService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public usuarioService: UsuariosService,
     private activatedRoute: ActivatedRoute,
     private router: Router

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { ModalsService } from 'src/app/shared/services/modals.service';
@@ -23,14 +23,14 @@ export class NuevaBitacoraComponent implements OnInit {
   public idPuestos: number;
   public idUsuario: number;
 
-  form: FormGroup;
+  form: UntypedFormGroup;
   bitacora: any;
 
   constructor(
     public modalService: ModalsService,
     public bitacoraService: BitacoraService,
     private activatedRoute: ActivatedRoute,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private router: Router,
     private cookie: CookieService,
   ) { }

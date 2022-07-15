@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MonitorService } from '../../services/monitor.service';
 import Swal from 'sweetalert2';
@@ -12,12 +12,12 @@ export class NuevoMonitorComponent implements OnInit {
 
   //public monitor: Monitor[] = [];
   public monitor: any;
-  public form: FormGroup;
+  public form: UntypedFormGroup;
 
 
   constructor(
     public monitorService: MonitorService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private activatedRoute: ActivatedRoute,
     public router: Router
   ) { }
