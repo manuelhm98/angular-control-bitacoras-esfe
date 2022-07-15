@@ -24,6 +24,7 @@ export class NuevaBitacoraComponent implements OnInit {
   public idUsuario: number;
 
   form: FormGroup;
+  bitacora: any;
 
   constructor(
     public modalService: ModalsService,
@@ -36,10 +37,10 @@ export class NuevaBitacoraComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.activatedRoute.params.subscribe(({ id }) => this.cargarBitacora(id));
     this.dataFalla();
     this.dataPuestos();
     this.checkId();
-
     this.form = this.fb.group({
       PuestosTrabajoID: ['', Validators.required,],
       FallaID: ['', Validators.required],
@@ -48,6 +49,19 @@ export class NuevaBitacoraComponent implements OnInit {
     })
   }
 
+  cargarBitacora(id: number) {
+    this.bitacoraService.byIdBitacora(id).subscribe(data => {
+      if (id === 0) {
+        return;
+      }
+      this.bitacora = data;
+      this.form.patchValue({
+        PuestosTrabajoID: this.bitacora.PuestosTrabajoID,
+        FallaID: this.bitacora.FallaID,
+        Comentario: this.bitacora.Comentario,
+      })
+    })
+  }
   createBitacora() {
 
     const data = {

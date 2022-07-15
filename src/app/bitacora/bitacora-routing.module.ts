@@ -17,7 +17,7 @@ const routes: Routes = [{
       canActivate: [RolesGuard]
     },
     {
-      path: 'nueva-bitacora', component: NuevaBitacoraComponent, data:
+      path: 'nueva-bitacora/:id', component: NuevaBitacoraComponent, data:
       {
         titulo: 'Registrar Bitacora',
         role: ['Admin', 'Supervisor', 'Docente']

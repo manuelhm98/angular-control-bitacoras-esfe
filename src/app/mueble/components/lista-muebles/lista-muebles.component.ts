@@ -29,6 +29,7 @@ export class ListaMueblesComponent implements OnInit {
       this.loadinMueble();
     })
   }
+
   deleteMueble(id: number) {
     Swal.fire({
       title: '¿Eliminar Mueble?',
@@ -51,6 +52,7 @@ export class ListaMueblesComponent implements OnInit {
     })
 
   }
+
   abrirModal() {
     this.muebleService.abrirModal();
   }
@@ -63,7 +65,7 @@ export class ListaMueblesComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
+  //* Paginacion
   changePage(valor: number) {
     this.page += valor;
     if (this.page <= 1) {

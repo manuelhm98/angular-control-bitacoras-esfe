@@ -20,9 +20,6 @@ export class NuevoUsuarioComponent implements OnInit {
   public user: any;
   public registerUser: FormGroup;
 
-
-
-
   constructor(
     private fb: FormBuilder,
     private roleService: RolesService,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 import { PuestosTrabajo } from '../../models/puestos-trabajo';
 import { PuestosTrabajoService } from '../../services/puestos-trabajo.service';
 
@@ -55,7 +56,26 @@ export class ListaPuestosTrabajoComponent implements OnInit {
 
   }
 
-  deleteArea() {
+  deletePuestoTrabajo(id: number) {
+    Swal.fire({
+      title: '¿Eliminar?',
+      text: 'Esta a punto de eliminar un registro',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si eliminarlo'
+    }).then((result) => {
+      if (result.value) {
+        this.puestosTrabajoService.deletePuestosTrabajo(id)
+          .subscribe(resp => {
+            this.loadinPuestos();
+            Swal.fire(
+              'Mueble eliminado',
+              `Mueble eliminado correctamente`,
+              'success'
+            )
+          })
+      }
+    })
 
   }
 }
