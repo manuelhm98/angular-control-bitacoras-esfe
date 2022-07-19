@@ -38,6 +38,12 @@ export class PuestosTrabajoService {
     return this.http.get<cargarPuestosTrabajo>(url);
   }
 
+  //* LIST PAGING Count
+  listCount() {
+    const url = `${base_url}/puestostrabajo/count`;
+    return this.http.get<cargarPuestosTrabajo>(url);
+  }
+
   //* LISTA PUESTOS TRABAJO
   listPuestosTrabajo() {
     return this.http.get(`${base_url}/puestostrabajo`);

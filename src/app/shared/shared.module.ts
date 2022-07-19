@@ -18,12 +18,13 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { ModalsComponent } from './modals/modals.component';
 import { FallasModalComponent } from './modals/fallas-modal/fallas-modal.component';
 import { PuestosTrabajoModalComponent } from './modals/puestos-trabajo-modal/puestos-trabajo-modal.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [NavbarComponent, SidebarComponent, FooterComponent, BreadcrumbComponent, DashboardComponent, PagesComponent, NotpageComponent, AreaModalComponent, MonitorModalComponent, UpsModalComponent, CpuModalComponent, MuebleModalComponent, ModalsComponent, FallasModalComponent, PuestosTrabajoModalComponent],
-  imports: [CommonModule, RouterModule, SharedRoutingModule],
+  imports: [CommonModule, RouterModule, SharedRoutingModule, NgxChartsModule, BrowserAnimationsModule],
   exports: [FooterComponent, NavbarComponent, SidebarComponent, BreadcrumbComponent, MonitorModalComponent],
 })
 export class SharedModule { }

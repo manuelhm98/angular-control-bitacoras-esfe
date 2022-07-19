@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { Bitacora } from '../../models/bitacora';
 import { BitacoraService } from '../../services/bitacora.service';
 @Component({
@@ -23,7 +24,29 @@ export class ListaBitacoraComponent implements OnInit {
     })
   }
 
+  deleteBitacoras
+    (id: number) {
+    Swal.fire({
+      title: '¿Eliminar?',
+      text: 'Esta a punto de eliminar un registro',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si eliminarlo'
+    }).then((result) => {
+      if (result.value) {
+        this.bitacoraService.deleteBitacora(id)
+          .subscribe(resp => {
+            this.loadingBitacoras();
+            Swal.fire(
+              'Mueble eliminado',
+              `Mueble eliminado correctamente`,
+              'success'
+            )
+          })
+      }
+    })
 
+  }
 
   /**
    * This function is used to load the bitacoras from the database
