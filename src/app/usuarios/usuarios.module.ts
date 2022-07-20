@@ -8,6 +8,7 @@ import { NuevoUsuarioComponent } from './components/nuevo-usuario/nuevo-usuario.
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuari
     UsuariosRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class UsuariosModule { }

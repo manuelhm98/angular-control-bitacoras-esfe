@@ -40,16 +40,12 @@ export class ListaAreaComponent implements OnInit {
     })
   }
 
-  //* Paginacion
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalArea + 1) {
-      this.page -= valor;
-    }
+  //* PAGINACION
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadinArea();
   }
+
 
   deleteArea(id: number) {
     Swal.fire({

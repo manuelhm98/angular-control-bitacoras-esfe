@@ -7,6 +7,7 @@ import { NuevaBitacoraComponent } from './components/nueva-bitacora/nueva-bitaco
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleBitacoraComponent } from './components/detalle-bitacora/detalle-bitacora.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DetalleBitacoraComponent } from './components/detalle-bitacora/detalle-
     BitacoraRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class BitacoraModule { }

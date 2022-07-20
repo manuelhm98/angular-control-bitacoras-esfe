@@ -79,6 +79,7 @@ export class NuevaBitacoraComponent implements OnInit {
           showConfirmButton: false,
           timer: 3000
         })
+        this.form.reset();
       }, (err) => {
         console.log(err)
       })

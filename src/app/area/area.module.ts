@@ -8,6 +8,7 @@ import { NuevaAreaComponent } from './components/nueva-area/nueva-area.component
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AreasComponent } from './components/areas/areas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [ListaAreaComponent, NuevaAreaComponent, AreasComponent],
@@ -16,7 +17,8 @@ import { AreasComponent } from './components/areas/areas.component';
     AreaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
 })
 export class AreaModule { }

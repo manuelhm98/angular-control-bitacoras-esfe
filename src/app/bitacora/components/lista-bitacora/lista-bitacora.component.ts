@@ -58,22 +58,12 @@ export class ListaBitacoraComponent implements OnInit {
     })
   }
 
-
-  /**
-   * The function changePage() is used to change the page of the table, it receives a number as a
-   * parameter, if the number is less than 1, the page is set to 1, if the number is greater than the
-   * total number of pages, the page is set to the previous page
-   * @param {number} valor - number: This is the value that will be added to the page variable.
-   */
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1
-    } else if (this.page > this.totalBitacora + 1) {
-      this.page -= valor;
-    }
+  //* PAGINACION
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingBitacoras();
   }
+
 
   abrirModal() {
     this.bitacoraService.abrirModal();

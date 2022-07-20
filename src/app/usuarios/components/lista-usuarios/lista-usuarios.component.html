@@ -45,7 +45,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of filterUser">
+        <tr
+          *ngFor="let usuario of filterUser  | paginate: { itemsPerPage: 1, currentPage: page, totalItems: totalUsuarios }">
+
           <td>{{usuario.Nombre}}</td>
           <td>{{usuario.Apellido}}</td>
           <td>{{usuario.Role.Roles}}</td>
@@ -66,12 +68,4 @@
   </div>
 </div>
 
-
-<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-  <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btncheck1">
-    < Anterior </label>
-      <br>
-      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
-</div>
+<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>

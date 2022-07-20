@@ -18,14 +18,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let bitacora of bitacoras">
+      <tr
+        *ngFor="let bitacora of bitacoras  | paginate: { itemsPerPage: 1, currentPage: page, totalItems:  totalBitacora}">
         <td>{{bitacora.PuestosTrabajo.Area.NombreArea}}</td>
         <td>{{bitacora.PuestosTrabajoID}}</td>
         <td>{{bitacora.Falla.Descripcion}}</td>
         <td>{{bitacora.Usuario.Nombre}}</td>
         <td>{{ bitacora.FechaHora}}</td>
         <td>
-          <a [routerLink]="['/bitacora','nueva-bitacora', bitacora.BitacoraID]">
+          <a [routerLink]=" ['/bitacora','nueva-bitacora', bitacora.BitacoraID]">
             <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
           </a>
 
@@ -44,11 +45,5 @@
     </tbody>
   </table>
 </div>
-<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-  <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btncheck1">
-    < Anterior </label>
-      <br>
-      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
-</div>
+
+<pagination-controls (pageChange)="pageChangeEvent ($event)"></pagination-controls>

@@ -36,7 +36,7 @@ export class ListaUsuariosComponent implements OnInit {
 
   }
 
-  //* CARGAR USUARIOS 
+  //* CARGAR USUARIOS
   loadingUser() {
     this.usuarioService.loadUser(this.page, this.name, this.rol).subscribe(({ TotalRegistros, Usuarios }) => {
       this.totalUsuarios = TotalRegistros;
@@ -47,24 +47,18 @@ export class ListaUsuariosComponent implements OnInit {
 
   //* SEARCH
   searchUser() {
-
     this.name = this.form.controls['names'].value
-
     this.rol = this.form.controls['role'].value
-
     this.loadingUser()
+
   }
 
   //* PAGINACION
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1
-    } else if (this.page > this.totalUsuarios + 1) {
-      this.page -= valor;
-    }
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingUser();
   }
+
 
   //* ELIMINAR USUARIO
   deleteUser(nombre: string, id: number) {
