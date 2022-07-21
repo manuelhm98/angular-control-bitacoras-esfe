@@ -11,7 +11,7 @@ import { TipoFallaService } from '../../services/tipo-falla.service';
 })
 export class ListaTipoFallaComponent implements OnInit {
 
-  //* DECLARACION DE VARIABLES 
+  //* DECLARACION DE VARIABLES
   public totalTipoFalla: number = 0;
   public tipoFalla: TipoFalla[] = [];
   public page: number = 1;
@@ -65,13 +65,8 @@ export class ListaTipoFallaComponent implements OnInit {
     this.tipoFallaService.abrirModal();
   }
 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalTipoFalla + 1) {
-      this.page -= valor;
-    }
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingTipoFalla();
   }
 }

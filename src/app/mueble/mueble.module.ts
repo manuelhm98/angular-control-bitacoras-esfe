@@ -7,6 +7,7 @@ import { ListaMueblesComponent } from './components/lista-muebles/lista-muebles.
 import { NuevoMuebleComponent } from './components/nuevo-mueble/nuevo-mueble.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MuebleRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class MuebleModule { }

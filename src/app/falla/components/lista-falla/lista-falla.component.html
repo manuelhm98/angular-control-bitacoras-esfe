@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let fallas of falla">
+        <tr *ngFor="let fallas of falla | paginate: { itemsPerPage: 1, currentPage: page, totalItems: totalFallas }">
           <td>{{fallas.FallaID}}</td>
           <td>{{fallas.Descripcion}}</td>
           <td>{{fallas.TipoFalla.Tipo}}</td>
@@ -49,12 +49,5 @@
 </div>
 
 
-<div class="btn-group shadow-lg" role="group" aria-label="Basic checkbox toggle button group">
-  <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btncheck1">
-    < Anterior </label>
-      <br>
-      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
-</div>
+<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
 <app-nueva-falla></app-nueva-falla>

@@ -11,7 +11,7 @@ import { UpsService } from '../../services/ups.service';
 })
 export class ListaUpsComponent implements OnInit {
 
-  //* VARIBLES 
+  //* VARIBLES
   public totalUps: number = 0;
   public upss: Ups[] = [];
   public page: number = 1;
@@ -66,14 +66,9 @@ export class ListaUpsComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalUps + 1) {
-      this.page -= valor;
-    }
+  //* Paginacion
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingUps();
   }
 }

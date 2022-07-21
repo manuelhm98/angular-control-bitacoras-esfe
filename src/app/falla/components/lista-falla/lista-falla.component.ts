@@ -40,13 +40,8 @@ export class ListaFallaComponent implements OnInit {
   }
 
   //* Paginacion
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalFallas + 1) {
-      this.page -= valor;
-    }
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingFalla();
   }
 

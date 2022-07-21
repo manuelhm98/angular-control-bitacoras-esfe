@@ -7,6 +7,7 @@ import { NuevoMonitorComponent } from './components/nuevo-monitor/nuevo-monitor.
 import { ListaMonitorComponent } from './components/lista-monitor/lista-monitor.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MonitorRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class MonitorModule { }

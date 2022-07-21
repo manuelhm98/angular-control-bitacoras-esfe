@@ -41,13 +41,8 @@ export class ListaPuestosTrabajoComponent implements OnInit {
   }
 
   //* Paginacion
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalPuestosTrabajo + 1) {
-      this.page -= valor;
-    }
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadinPuestos();
   }
 

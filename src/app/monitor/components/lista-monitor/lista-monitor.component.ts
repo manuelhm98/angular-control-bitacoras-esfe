@@ -11,7 +11,7 @@ import { MonitorService } from '../../services/monitor.service';
 })
 export class ListaMonitorComponent implements OnInit {
 
-  //* VARIBLES 
+  //* VARIBLES
   public totalMonitor: number = 0;
   public monitor: Monitor[] = [];
   public page: number = 1;
@@ -66,14 +66,9 @@ export class ListaMonitorComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalMonitor + 1) {
-      this.page -= valor;
-    }
+  //* Paginacion
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingMonitor();
   }
 }

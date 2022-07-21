@@ -12,7 +12,7 @@ import { CpuService } from '../../services/cpu.service';
 export class ListaCpuComponent implements OnInit {
 
 
-  //* VARIBLES 
+  //* VARIBLES
   public totalCpu: number = 0;
   public cpu: Cpu[] = [];
   public page: number = 1;
@@ -38,8 +38,8 @@ export class ListaCpuComponent implements OnInit {
 
   deleteCpu(id: number) {
     Swal.fire({
-      title: '¿Eliminar CPU?',
-      text: 'Esta a punto de eliminar un CPU',
+      title: '¿Eliminar ?',
+      text: 'Esta a punto de eliminar un registro',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Si eliminarlo'
@@ -67,14 +67,9 @@ export class ListaCpuComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalCpu + 1) {
-      this.page -= valor;
-    }
+  //* Paginacion
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingCpu();
   }
 }

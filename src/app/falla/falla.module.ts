@@ -7,6 +7,7 @@ import { ListaFallaComponent } from './components/lista-falla/lista-falla.compon
 import { NuevaFallaComponent } from './components/nueva-falla/nueva-falla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FallaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class FallaModule { }

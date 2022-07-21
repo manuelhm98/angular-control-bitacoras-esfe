@@ -7,6 +7,7 @@ import { ListaTipoAreaComponent } from './components/lista-tipo-area/lista-tipo-
 import { NuevoTipoAreaComponent } from './components/nuevo-tipo-area/nuevo-tipo-area.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     TipoAreaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class TipoAreaModule { }

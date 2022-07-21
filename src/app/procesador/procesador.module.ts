@@ -7,6 +7,7 @@ import { ListaProcesadorComponent } from './components/lista-procesador/lista-pr
 import { NuevoProcesadorComponent } from './components/nuevo-procesador/nuevo-procesador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ProcesadorRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class ProcesadorModule { }

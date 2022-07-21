@@ -7,6 +7,7 @@ import { ListaEquipoAreaComponent } from './components/lista-equipo-area/lista-e
 import { EquipoAreaComponent } from './components/equipo-area/equipo-area.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     EquipoAreaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class EquipoAreaModule { }

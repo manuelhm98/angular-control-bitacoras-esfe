@@ -7,6 +7,7 @@ import { NuevoUpsComponent } from './components/nuevo-ups/nuevo-ups.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UpsComponent } from './components/ups/ups.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { UpsComponent } from './components/ups/ups.component';
     UpsRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class UpsModule { }

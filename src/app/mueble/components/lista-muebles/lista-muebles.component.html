@@ -6,7 +6,8 @@
 </div>
 <br>
 <div class="row row-cols-1 row-cols-md-5 g-8 animate__animated animate__fadeIn">
-  <div class="col" *ngFor="let muebles of mueble">
+  <div class="col"
+    *ngFor="let muebles of mueble | paginate: { itemsPerPage: 1, currentPage: page, totalItems: totalMuebles }">
     <div class="card shadow-lg  mb-2">
       <img src="../../../../assets/img/mueble.svg" class="img-fluid shadow-lg" alt="..."
         style="width: 500px; height: 100px;">
@@ -28,13 +29,5 @@
   </div>
 </div>
 <br>
-<div class="btn-group shadow-lg" role="group" aria-label="Basic checkbox toggle button group">
-  <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-  <label (click)="changePage(-1)" class="btn btn-outline-primary" for="btncheck1">
-    < Anterior </label>
-      <br>
-      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
-</div>
-
+<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
 <app-nuevo-mueble></app-nuevo-mueble>

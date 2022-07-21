@@ -7,6 +7,7 @@ import { ListaTipoFallaComponent } from './components/lista-tipo-falla/lista-tip
 import { NuevoTipoFallaComponent } from './components/nuevo-tipo-falla/nuevo-tipo-falla.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     TipoFallaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class TipoFallaModule { }

@@ -11,15 +11,14 @@ import { TipoAreaService } from '../../services/tipo-area.service';
 })
 export class ListaTipoAreaComponent implements OnInit {
 
-  //* DECLARACION DE VARIABLES 
-  public totolTipoArea: number = 0;
+  //* DECLARACION DE VARIABLES
+  public totalTipoArea: number = 0;
   public tipoArea: TipoArea[] = [];
   public page: number = 1;
   public take: number = 5;
 
   constructor(
     private tipoAreaService: TipoAreaService,
-
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +30,7 @@ export class ListaTipoAreaComponent implements OnInit {
       this.loadinTipoArea();
     })
   }
+
   deleteTipoArea(id: number) {
     Swal.fire({
       title: '¿Eliminar Tipo de Area?',
@@ -56,8 +56,8 @@ export class ListaTipoAreaComponent implements OnInit {
 
   loadinTipoArea() {
     this.tipoAreaService.loadTipoAreas(this.page).subscribe(({ TotalRegistros, TipoAreas }) => {
-      this.totolTipoArea = TotalRegistros;
-      this.tipoArea = TipoAreas
+      this.totalTipoArea = TotalRegistros;
+      return this.tipoArea = TipoAreas
     })
   }
 
@@ -65,15 +65,10 @@ export class ListaTipoAreaComponent implements OnInit {
     this.tipoAreaService.abrirModal();
   }
 
-  //* Paginacion 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totolTipoArea + 1) {
-      this.page -= valor;
-    }
-    this.loadinTipoArea();
+  //* Paginacion
+  pageChangeEvent(event: number) {
+    this.page = event;
+    return this.loadinTipoArea();
   }
 
 }

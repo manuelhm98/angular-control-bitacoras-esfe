@@ -15,7 +15,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles">
+      <tr *ngFor="let role of roles | paginate: { itemsPerPage: 1, currentPage: page, totalItems: totalRoles }">
         <td>{{role.RoleID}}</td>
         <td>{{role.Roles}}</td>
         <td>
@@ -27,12 +27,5 @@
     </tbody>
   </table>
 </div>
-<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-  <input (click)="changePage(-1)" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btncheck1">
-    < Anterior </label>
-      <br>
-      <input (click)="changePage(1)" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Siguiente > </label>
-</div>
+<pagination-controls (pageChange)="pageChangeEvent($event)"></pagination-controls>
 <app-nuevo-rol></app-nuevo-rol>

@@ -8,6 +8,7 @@ import { NuevoPuestosTrabajoComponent } from './components/nuevo-puestos-trabajo
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditarPuestosTrabajoComponent } from './components/editar-puestos-trabajo/editar-puestos-trabajo.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -18,7 +19,8 @@ import { EditarPuestosTrabajoComponent } from './components/editar-puestos-traba
     PuestosTrabajoRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class PuestosTrabajoModule { }

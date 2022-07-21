@@ -44,13 +44,8 @@ export class ListaEquipoAreaComponent implements OnInit {
   }
 
   //* Paginacion
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalEquipoArea + 1) {
-      this.page -= valor;
-    }
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingEquipoArea();
   }
 

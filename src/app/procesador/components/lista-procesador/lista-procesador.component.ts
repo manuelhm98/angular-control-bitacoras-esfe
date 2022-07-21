@@ -11,7 +11,7 @@ import { ProcesadorService } from '../../services/procesador.service';
 })
 export class ListaProcesadorComponent implements OnInit {
 
-  //* VARIBLES 
+  //* VARIBLES
   public totalProcesador: number = 0;
   public procesador: Procesador[] = [];
   public page: number = 1;
@@ -63,14 +63,9 @@ export class ListaProcesadorComponent implements OnInit {
     })
   }
 
-  //* Paginacion 
-  changePage(valor: number) {
-    this.page += valor;
-    if (this.page <= 1) {
-      this.page = 1;
-    } else if (this.page > this.totalProcesador + 1) {
-      this.page -= valor;
-    }
+  //* Paginacion
+  pageChangeEvent(event: number) {
+    this.page = event;
     this.loadingProcesador();
   }
 }
