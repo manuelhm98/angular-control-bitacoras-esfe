@@ -1,11 +1,23 @@
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a class="btn btn-primary rounded-pill shadow-lg" routerLink="/bitacora/nueva-bitacora/0">
-    <i class="fas fa-plus"></i>
-    Agregar
-  </a>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-text mb-3"><i class="fas fa-search"></i>
+      </div>
+      <input type="date" class="form-control mb-3" placeholder="Buscar por Nombre ..."
+        (change)="searchBitacora($event)">
+    </div>
+    <a class="btn btn-primary rounded-pill shadow-lg" routerLink="/bitacora/nueva-bitacora/0">
+      <i class="fas fa-plus"></i>
+      Agregar
+    </a>
+    <a (click)="generetePdf()" class=" btn btn-danger rounded-pill shadow-lg">
+      <i class="fa fa-solid fa-print"></i>
+    </a>
+  </div>
 </div>
+
 <br>
-<div class="table-responsive">
+<div id="htmlData" class="table-responsive">
   <table class="table  animate__animated animate__bounceInRight shadow-lg p-3 mb-5">
     <thead class="table-dark">
       <tr>
@@ -18,13 +30,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let bitacora of bitacoras  | paginate: { itemsPerPage: 1, currentPage: page, totalItems:  totalBitacora}">
+      <tr *ngFor="let bitacora of bitacoras">
         <td>{{bitacora.PuestosTrabajo.Area.NombreArea}}</td>
         <td>{{bitacora.PuestosTrabajoID}}</td>
         <td>{{bitacora.Falla.Descripcion}}</td>
         <td>{{bitacora.Usuario.Nombre}}</td>
-        <td>{{ bitacora.FechaHora}}</td>
+        <td>{{ bitacora.FechaHora | date:'medium'}}</td>
         <td>
           <a [routerLink]=" ['/bitacora','nueva-bitacora', bitacora.BitacoraID]">
             <i class="far fa-edit fa-lg text-info" style="cursor: pointer;"></i>
@@ -44,6 +55,5 @@
       </tr>
     </tbody>
   </table>
-</div>
 
-<pagination-controls (pageChange)="pageChangeEvent ($event)"></pagination-controls>
+</div>

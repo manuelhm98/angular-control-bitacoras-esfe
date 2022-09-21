@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { delay, filter } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Area } from '../../models/area';
 import { AreaService } from '../../services/area.service';
@@ -14,10 +15,14 @@ export class ListaAreaComponent implements OnInit {
   //* DECLARACION DE VARIABLES
   public totalArea: number = 0;
   public area: Area[] = [];
+  public filterArea: Area[] = [];
   public page: number = 1;
   public take: number = 5;
+  public name: string = "";
+  public tipo: string = "";
+  form: FormGroup
 
-  constructor(private areaService: AreaService) { }
+  constructor(private areaService: AreaService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.loadinArea();
@@ -27,6 +32,18 @@ export class ListaAreaComponent implements OnInit {
     ).subscribe(resp => {
       this.loadinArea();
     })
+
+    this.form = this.fb.group({
+      names: '',
+      tipo: '',
+    })
+  }
+
+  //* SEARCH
+  searchArea() {
+    this.name = this.form.controls['names'].value
+    this.tipo = this.form.controls['tipo'].value
+    this.loadinArea()
   }
 
   abrirModal() {
@@ -34,9 +51,10 @@ export class ListaAreaComponent implements OnInit {
   }
 
   loadinArea() {
-    this.areaService.loadArea(this.page).subscribe(({ TotalRegistros, Areas }) => {
+    this.areaService.loadArea(this.page, this.name, this.tipo).subscribe(({ TotalRegistros, Areas }) => {
       this.totalArea = TotalRegistros;
       this.area = Areas
+      this.filterArea = Areas
     })
   }
 
@@ -49,8 +67,8 @@ export class ListaAreaComponent implements OnInit {
 
   deleteArea(id: number) {
     Swal.fire({
-      title: '¿Eliminar Area?',
-      text: 'Esta a punto de eliminar una AREA',
+      title: '¿Eliminar?',
+      text: 'Esta a punto de eliminar un registro',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Si eliminarlo'

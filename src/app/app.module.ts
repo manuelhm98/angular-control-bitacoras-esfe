@@ -10,9 +10,11 @@ import { RoleModule } from './role/role.module';
 import { InjectSessionInterceptor } from './shared/core/intercertors/inject-session.interceptor';
 import { SharedModule } from './shared/shared.module';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,

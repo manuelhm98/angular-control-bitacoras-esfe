@@ -31,10 +31,7 @@ export class RolesGuard implements CanActivate {
       const token = this.cookie.get('token');
       const tokenInfo = this.getDecodedAccessToken(token);
       const role = tokenInfo.role;
-
       const scope = role;
-
-
 
       if (route.data.role.includes(scope)) {
         console.log('Authorize');

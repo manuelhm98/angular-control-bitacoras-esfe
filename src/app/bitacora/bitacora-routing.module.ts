@@ -4,6 +4,7 @@ import { RolesGuard } from '../shared/core/guards/roles.guard';
 import { DetalleBitacoraComponent } from './components/detalle-bitacora/detalle-bitacora.component';
 import { ListaBitacoraComponent } from './components/lista-bitacora/lista-bitacora.component';
 import { NuevaBitacoraComponent } from './components/nueva-bitacora/nueva-bitacora.component';
+import { ReportsComponent } from './components/reports/reports.component';
 
 const routes: Routes = [{
   path: '',
@@ -28,6 +29,14 @@ const routes: Routes = [{
       path: 'detalle-bitacora/:id', component: DetalleBitacoraComponent, data:
       {
         titulo: 'Detalle Bitacora',
+        role: ['Admin', 'Supervisor', 'Docente']
+      },
+      canActivate: [RolesGuard]
+    },
+    {
+      path: 'reports', component: ReportsComponent, data:
+      {
+        titulo: 'Reporte',
         role: ['Admin', 'Supervisor', 'Docente']
       },
       canActivate: [RolesGuard]

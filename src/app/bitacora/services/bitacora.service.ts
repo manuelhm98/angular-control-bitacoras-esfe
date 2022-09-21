@@ -64,9 +64,14 @@ export class BitacoraService {
   }
 
   //* LISTA BITACORAS
-  listBitacora() {
-    return this.http.get(`${base_url}/bitacora`)
+  listBitacora(start: string = "") {
+    if (start != "") {
+      return this.http.get(`${base_url}/bitacora?start=${start}`)
+    } else {
+      return this.http.get(`${base_url}/bitacora`)
+    }
   }
+
 
   //* BY ID
   byIdBitacora(id: number) {

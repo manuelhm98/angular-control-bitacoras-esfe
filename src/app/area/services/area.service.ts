@@ -33,8 +33,8 @@ export class AreaService {
     this._ocultarModal = true;
   }
 
-  //TODO METODOS 
-  //* GUARDAR 
+  //TODO METODOS
+  //* GUARDAR
   createArea(area: Area): Observable<Area> {
     return this.http.post<Area>(`${base_url}/area`, area);
   }
@@ -49,18 +49,37 @@ export class AreaService {
     return this.http.delete<Area>(`${base_url}/area/${id}`);
   }
 
-  //* LIST PAGIN
-  loadArea(page: number = 1) {
-    const url = `${base_url}/area/lista?page=${page}`;
-    return this.http.get<cargarArea>(url);
+
+  /**
+   * It's a function that returns an observable of type cargarArea, which is an interface that I created
+   * to handle the data that I'm getting from the API
+   * @param {number} [page=1] - The page number to load.
+   * @param {string} [name] - The name of the area to search for.
+   * @param {string} [tipo] - string = ""
+   * @returns an observable of the type cargarArea.
+   */
+  loadArea(page: number = 1, name: string = "", tipo: string = "") {
+    if (name != "" && tipo != "") {
+      const url = `${base_url}/area/lista?page=${page}&name=${name}&tipo=${tipo}`;
+      return this.http.get<cargarArea>(url);
+    } if (name != "") {
+      const url = `${base_url}/area/lista?page=${page}&name=${name}`;
+      return this.http.get<cargarArea>(url);
+    } if (tipo != "") {
+      const url = `${base_url}/area/lista?page=${page}&tipo=${tipo}`;
+      return this.http.get<cargarArea>(url);
+    } else {
+      const url = `${base_url}/area/lista?page=${page}`;
+      return this.http.get<cargarArea>(url);
+    }
   }
 
-  //* LIST AREA 
+  //* LIST AREA
   listArea() {
     return this.http.get(`${base_url}/area`)
   }
 
-  //* BY ID 
+  //* BY ID
   byIdArea(id: number) {
     return this.http.get(`${base_url}/area/${id}`);
   }

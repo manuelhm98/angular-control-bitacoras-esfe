@@ -8,10 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleBitacoraComponent } from './components/detalle-bitacora/detalle-bitacora.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ReportsComponent } from './components/reports/reports.component';
 
 
 @NgModule({
-  declarations: [ListaBitacoraComponent, NuevaBitacoraComponent, DetalleBitacoraComponent],
+  declarations: [ListaBitacoraComponent, NuevaBitacoraComponent, DetalleBitacoraComponent, ReportsComponent],
   imports: [
     CommonModule,
     BitacoraRoutingModule,
